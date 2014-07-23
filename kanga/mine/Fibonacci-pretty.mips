@@ -1,0 +1,382 @@
+.data 
+errormsg: .asciiz "\033[34m(mission) aborted.\033[0m \033[5;31mabandon ship!\033[0m \033[34mfarewell cruel world ...\033[0m\n" 
+.text 
+main: 
+add $sp, $sp, -164 
+sw $ra, 4($sp) 
+add $v0, $0, 0 
+sw $v0, 88($sp) 
+add $v0, $0, 4 
+sw $v0, 48($sp) 
+lw $v0, 48($sp) 
+add $v0, $v0, 0 
+sw $v0, 32($sp) 
+lw $v0, 32($sp) 
+add $a0, $0, $v0 
+jal .alloc 
+add $v0, $v0, 0 
+sw $v0, 36($sp) 
+lw $v0, 36($sp) 
+add $v0, $v0, 0 
+sw $v0, 68($sp) 
+add $v0, $0, 4 
+sw $v0, 40($sp) 
+lw $v0, 40($sp) 
+add $v0, $v0, 0 
+sw $v0, 44($sp) 
+lw $v0, 44($sp) 
+add $a0, $0, $v0 
+jal .alloc 
+add $v0, $v0, 0 
+sw $v0, 16($sp) 
+lw $v0, 16($sp) 
+add $v0, $v0, 0 
+sw $v0, 72($sp) 
+lw $v0, 68($sp) 
+add $v0, $v0, 0 
+sw $v0, 20($sp) 
+la $v0, Fib_ComputeFib 
+sw $v0, 24($sp) 
+lw $v0, 20($sp) 
+lw $v1, 24($sp) 
+sw $v1, 0($v0) 
+sw $v0, 20($sp) 
+lw $v0, 72($sp) 
+add $v0, $v0, 0 
+sw $v0, 28($sp) 
+lw $v0, 68($sp) 
+add $v0, $v0, 0 
+sw $v0, 12($sp) 
+lw $v0, 28($sp) 
+lw $v1, 12($sp) 
+sw $v1, 0($v0) 
+sw $v0, 28($sp) 
+lw $v0, 72($sp) 
+add $v0, $v0, 0 
+sw $v0, 116($sp) 
+lw $v0, 116($sp) 
+add $v0, $v0, 0 
+sw $v0, 112($sp) 
+add $v0, $0, 0 
+sw $v0, 124($sp) 
+lw $v0, 124($sp) 
+add $v0, $v0, 0 
+sw $v0, 120($sp) 
+L0: 
+lw $v0, 120($sp) 
+add $v0, $v0, 0 
+sw $v0, 96($sp) 
+add $v0, $0, 20 
+sw $v0, 100($sp) 
+lw $v0, 100($sp) 
+add $v0, $v0, 0 
+sw $v0, 104($sp) 
+lw $v0, 96($sp) 
+lw $v1, 104($sp) 
+slt $v0, $v0, $v1 
+sw $v0, 52($sp) 
+lw $v0, 52($sp) 
+add $v0, $v0, 0 
+sw $v0, 92($sp) 
+lw $v0, 92($sp) 
+bne $v0, 1, L1 
+lw $v0, 112($sp) 
+add $v0, $v0, 0 
+sw $v0, 76($sp) 
+lw $v0, 76($sp) 
+add $v0, $v0, 0 
+sw $v0, 60($sp) 
+add $v0, $0, 1 
+sw $v0, 64($sp) 
+lw $v0, 64($sp) 
+add $v0, $v0, 0 
+sw $v0, 156($sp) 
+lw $v0, 60($sp) 
+lw $v1, 156($sp) 
+slt $v0, $v0, $v1 
+sw $v0, 160($sp) 
+lw $v0, 160($sp) 
+add $v0, $v0, 0 
+sw $v0, 56($sp) 
+lw $v0, 56($sp) 
+bne $v0, 1, L2 
+li $v0, 4 
+la $a0, errormsg 
+syscall 
+li $v0, 10 
+syscall 
+L2: 
+lw $v0, 76($sp) 
+add $v0, $v0, 0 
+sw $v0, 164($sp) 
+lw $v0, 80($sp) 
+lw $v1, 164($sp) 
+lw $v0, 0($v1) 
+sw $v0, 80($sp) 
+lw $v0, 80($sp) 
+add $v0, $v0, 0 
+sw $v0, 140($sp) 
+lw $v0, 84($sp) 
+lw $v1, 140($sp) 
+lw $v0, 0($v1) 
+sw $v0, 84($sp) 
+lw $v0, 84($sp) 
+add $v0, $v0, 0 
+sw $v0, 144($sp) 
+lw $v0, 144($sp) 
+add $v0, $v0, 0 
+sw $v0, 148($sp) 
+lw $v0, 76($sp) 
+add $a0, $v0, 0 
+lw $v0, 120($sp) 
+add $a1, $v0, 0 
+lw $v0, 148($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 152($sp) 
+lw $v0, 152($sp) 
+add $a0, $0, $v0 
+jal .print 
+lw $v0, 120($sp) 
+add $v0, $v0, 0 
+sw $v0, 128($sp) 
+add $v0, $0, 1 
+sw $v0, 132($sp) 
+lw $v0, 132($sp) 
+add $v0, $v0, 0 
+sw $v0, 136($sp) 
+lw $v0, 128($sp) 
+lw $v1, 136($sp) 
+add $v0, $v0, $v1 
+sw $v0, 8($sp) 
+lw $v0, 8($sp) 
+add $v0, $v0, 0 
+sw $v0, 120($sp) 
+j L0 
+L1: 
+sll $0, $0, 0 
+lw $ra, 4($sp) 
+add $sp, $sp, 4 
+add $v0, $0, 0 
+jr $ra 
+Fib_ComputeFib: 
+add $sp, $sp, -216 
+sw $ra, 4($sp) 
+sw $a0, 104($sp) 
+sw $a1, 108($sp) 
+lw $v0, 108($sp) 
+add $v0, $v0, 0 
+sw $v0, 36($sp) 
+add $v0, $0, 1 
+sw $v0, 40($sp) 
+lw $v0, 40($sp) 
+add $v0, $v0, 0 
+sw $v0, 16($sp) 
+lw $v0, 36($sp) 
+lw $v1, 16($sp) 
+slt $v0, $v0, $v1 
+sw $v0, 20($sp) 
+lw $v0, 20($sp) 
+add $v0, $v0, 0 
+sw $v0, 32($sp) 
+lw $v0, 32($sp) 
+bne $v0, 1, L3 
+add $v0, $0, 0 
+sw $v0, 24($sp) 
+lw $v0, 24($sp) 
+add $v0, $v0, 0 
+sw $v0, 112($sp) 
+j L4 
+L3: 
+lw $v0, 108($sp) 
+add $v0, $v0, 0 
+sw $v0, 8($sp) 
+add $v0, $0, 2 
+sw $v0, 12($sp) 
+lw $v0, 12($sp) 
+add $v0, $v0, 0 
+sw $v0, 48($sp) 
+lw $v0, 8($sp) 
+lw $v1, 48($sp) 
+slt $v0, $v0, $v1 
+sw $v0, 68($sp) 
+lw $v0, 68($sp) 
+add $v0, $v0, 0 
+sw $v0, 28($sp) 
+lw $v0, 28($sp) 
+bne $v0, 1, L5 
+add $v0, $0, 1 
+sw $v0, 72($sp) 
+lw $v0, 72($sp) 
+add $v0, $v0, 0 
+sw $v0, 112($sp) 
+j L6 
+L5: 
+lw $v0, 104($sp) 
+add $v0, $v0, 0 
+sw $v0, 116($sp) 
+lw $v0, 116($sp) 
+add $v0, $v0, 0 
+sw $v0, 80($sp) 
+add $v0, $0, 1 
+sw $v0, 52($sp) 
+lw $v0, 52($sp) 
+add $v0, $v0, 0 
+sw $v0, 56($sp) 
+lw $v0, 80($sp) 
+lw $v1, 56($sp) 
+slt $v0, $v0, $v1 
+sw $v0, 60($sp) 
+lw $v0, 60($sp) 
+add $v0, $v0, 0 
+sw $v0, 76($sp) 
+lw $v0, 76($sp) 
+bne $v0, 1, L7 
+li $v0, 4 
+la $a0, errormsg 
+syscall 
+li $v0, 10 
+syscall 
+L7: 
+lw $v0, 116($sp) 
+add $v0, $v0, 0 
+sw $v0, 64($sp) 
+lw $v0, 84($sp) 
+lw $v1, 64($sp) 
+lw $v0, 0($v1) 
+sw $v0, 84($sp) 
+lw $v0, 84($sp) 
+add $v0, $v0, 0 
+sw $v0, 44($sp) 
+lw $v0, 88($sp) 
+lw $v1, 44($sp) 
+lw $v0, 0($v1) 
+sw $v0, 88($sp) 
+lw $v0, 88($sp) 
+add $v0, $v0, 0 
+sw $v0, 140($sp) 
+lw $v0, 140($sp) 
+add $v0, $v0, 0 
+sw $v0, 144($sp) 
+lw $v0, 108($sp) 
+add $v0, $v0, 0 
+sw $v0, 168($sp) 
+add $v0, $0, 1 
+sw $v0, 172($sp) 
+lw $v0, 172($sp) 
+add $v0, $v0, 0 
+sw $v0, 176($sp) 
+lw $v0, 168($sp) 
+lw $v1, 176($sp) 
+sub $v0, $v0, $v1 
+sw $v0, 148($sp) 
+lw $v0, 116($sp) 
+add $a0, $v0, 0 
+lw $v0, 148($sp) 
+add $a1, $v0, 0 
+lw $v0, 144($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 164($sp) 
+lw $v0, 164($sp) 
+add $v0, $v0, 0 
+sw $v0, 152($sp) 
+lw $v0, 104($sp) 
+add $v0, $v0, 0 
+sw $v0, 92($sp) 
+lw $v0, 92($sp) 
+add $v0, $v0, 0 
+sw $v0, 160($sp) 
+add $v0, $0, 1 
+sw $v0, 180($sp) 
+lw $v0, 180($sp) 
+add $v0, $v0, 0 
+sw $v0, 184($sp) 
+lw $v0, 160($sp) 
+lw $v1, 184($sp) 
+slt $v0, $v0, $v1 
+sw $v0, 188($sp) 
+lw $v0, 188($sp) 
+add $v0, $v0, 0 
+sw $v0, 156($sp) 
+lw $v0, 156($sp) 
+bne $v0, 1, L8 
+li $v0, 4 
+la $a0, errormsg 
+syscall 
+li $v0, 10 
+syscall 
+L8: 
+lw $v0, 92($sp) 
+add $v0, $v0, 0 
+sw $v0, 204($sp) 
+lw $v0, 96($sp) 
+lw $v1, 204($sp) 
+lw $v0, 0($v1) 
+sw $v0, 96($sp) 
+lw $v0, 96($sp) 
+add $v0, $v0, 0 
+sw $v0, 208($sp) 
+lw $v0, 100($sp) 
+lw $v1, 208($sp) 
+lw $v0, 0($v1) 
+sw $v0, 100($sp) 
+lw $v0, 100($sp) 
+add $v0, $v0, 0 
+sw $v0, 212($sp) 
+lw $v0, 212($sp) 
+add $v0, $v0, 0 
+sw $v0, 216($sp) 
+lw $v0, 108($sp) 
+add $v0, $v0, 0 
+sw $v0, 196($sp) 
+add $v0, $0, 2 
+sw $v0, 200($sp) 
+lw $v0, 200($sp) 
+add $v0, $v0, 0 
+sw $v0, 120($sp) 
+lw $v0, 196($sp) 
+lw $v1, 120($sp) 
+sub $v0, $v0, $v1 
+sw $v0, 124($sp) 
+lw $v0, 92($sp) 
+add $a0, $v0, 0 
+lw $v0, 124($sp) 
+add $a1, $v0, 0 
+lw $v0, 216($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 192($sp) 
+lw $v0, 192($sp) 
+add $v0, $v0, 0 
+sw $v0, 128($sp) 
+lw $v0, 152($sp) 
+lw $v1, 128($sp) 
+add $v0, $v0, $v1 
+sw $v0, 132($sp) 
+lw $v0, 132($sp) 
+add $v0, $v0, 0 
+sw $v0, 112($sp) 
+L6: 
+sll $0, $0, 0 
+L4: 
+sll $0, $0, 0 
+lw $v0, 112($sp) 
+add $v0, $v0, 0 
+sw $v0, 136($sp) 
+lw $v0, 136($sp) 
+add $v0, $v0, 0 
+lw $ra, 4($sp) 
+add $sp, $sp, 216 
+jr $ra 
+.alloc: 
+add $v0, $0, 9 
+syscall 
+jr $ra 
+.print: 
+add $v0, $0, 1 
+syscall 
+add $a0, $0, 10 
+add $v0, $0, 11 
+syscall 
+jr $ra 

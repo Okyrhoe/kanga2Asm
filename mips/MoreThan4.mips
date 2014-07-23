@@ -1,0 +1,144 @@
+	.text
+main:
+	add $sp, $sp, -4
+	sw $ra, 4($sp)
+	add $a0, $0, 8
+	jal .alloc
+	add $t0, $v0, 0
+	add $a0, $0, 4
+	jal .alloc
+	add $t1, $v0, 0
+	la $t2, MT4_Change
+	sw $t2, 4($t0)
+	la $t2, MT4_Start
+	sw $t2, 0($t0)
+	sw $t0, 0($t1)
+	add $t0, $t1, 0
+	lw $t1 0($t0)
+	lw $t2 0($t1)
+	add $t1, $0,1
+	add $t3, $0,2
+	add $t4, $0,3
+	add $t5, $0,4
+	add $t6, $0,5
+	add $t7, $0,6
+
+	add $a0, $t0, 0
+	add $a1, $t1, 0
+	add $a2, $t3, 0
+	add $a3, $t4, 0
+
+	sw $t5, 0($sp)
+	sw $t6, -4($sp)
+	sw $t7, -8($sp)
+	add $sp, $sp, -12
+
+	jalr $t2
+
+	add $sp, $sp, 12
+	
+	add $t8, $v0, 0
+	add $a0, $0, $t8
+	jal .print
+	lw $ra, 4($sp)
+	add $sp, $sp, 4
+	add $v0, $0, 0
+	jr $ra
+MT4_Start:
+	add $sp, $sp, -20
+	sw $ra, 4($sp)
+	sw $s0, 20($sp)
+	sw $s1, 16($sp)
+	sw $s2, 12($sp)
+	sw $s3, 8($sp)
+	add $s0, $a0, 0
+	add $s1, $a1, 0
+	add $s2, $a2, 0
+	add $s3, $a3, 0
+	add $a0, $0, $s1
+	jal .print
+	add $a0, $0, $s2
+	jal .print
+	add $a0, $0, $s3
+	jal .print
+	lw $v1, 32($sp)
+	add $a0, $0, $v1
+	jal .print
+	lw $v1, 28($sp)
+	add $a0, $0, $v1
+	jal .print
+	lw $v1, 24($sp)
+	add $a0, $0, $v1
+	jal .print
+	add $t0, $s0, 0
+	lw $t1 0($t0)
+	lw $t2 4($t1)
+	add $a0, $t0, 0
+	lw $v1, 24($sp)
+	add $a1, $v1, 0
+	lw $v0, 28($sp)
+	add $a2, $v0, 0
+	lw $v0, 32($sp)
+	add $a3, $v0, 0
+	sw $s3, 0($sp)
+	sw $s2, -4($sp)
+	sw $s1, -8($sp)
+	add $sp, $sp, -12
+	jalr $t2
+	add $sp, $sp, 12
+	add $t1, $v0, 0
+	add $t0, $t1, 0
+	add $v0, $t0, 0
+	lw $s0, 20($sp)
+	lw $s1, 16($sp)
+	lw $s2, 12($sp)
+	lw $s3, 8($sp)
+	lw $ra, 4($sp)
+	add $sp, $sp, 20
+	jr $ra
+MT4_Change:
+	add $sp, $sp, -20
+	sw $ra, 4($sp)
+	sw $s0, 20($sp)
+	sw $s1, 16($sp)
+	sw $s2, 12($sp)
+	sw $s3, 8($sp)
+	add $s0, $a0, 0
+	add $s1, $a1, 0
+	add $s2, $a2, 0
+	add $s3, $a3, 0
+	add $a0, $0, $s1
+	jal .print
+	add $a0, $0, $s2
+	jal .print
+	add $a0, $0, $s3
+	jal .print
+	lw $v1, 32($sp)
+	add $a0, $0, $v1
+	jal .print
+	lw $v1, 28($sp)
+	add $a0, $0, $v1
+	jal .print
+	lw $v1, 24($sp)
+	add $a0, $0, $v1
+	jal .print
+	add $t0, $0,0
+	add $v0, $t0, 0
+	lw $s0, 20($sp)
+	lw $s1, 16($sp)
+	lw $s2, 12($sp)
+	lw $s3, 8($sp)
+	lw $ra, 4($sp)
+	add $sp, $sp, 20
+	jr $ra
+.alloc:
+	add $v0, $0, 9
+	syscall
+	jr $ra
+.print:
+	add $v0, $0, 1
+	syscall
+	add $a0, $0, 10
+	add $v0, $0, 11
+	syscall
+	jr $ra

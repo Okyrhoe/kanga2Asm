@@ -1,0 +1,187 @@
+.data 
+errormsg: .asciiz "\033[34m(mission) aborted.\033[0m \033[5;31mabandon ship!\033[0m \033[34mfarewell cruel world ...\033[0m\n" 
+.text 
+main: 
+add $sp, $sp, -64 
+sw $ra, 4($sp) 
+add $a0, $0, 8 
+jal .alloc 
+add $v0, $v0, 0 
+sw $v0, 16($sp) 
+add $a0, $0, 4 
+jal .alloc 
+add $v0, $v0, 0 
+sw $v0, 20($sp) 
+la $v0, MT4_Change 
+sw $v0, 56($sp) 
+lw $v0, 16($sp) 
+lw $v1, 56($sp) 
+sw $v1, 4($v0) 
+sw $v0, 16($sp) 
+la $v0, MT4_Start 
+sw $v0, 60($sp) 
+lw $v0, 16($sp) 
+lw $v1, 60($sp) 
+sw $v1, 0($v0) 
+sw $v0, 16($sp) 
+lw $v0, 20($sp) 
+lw $v1, 16($sp) 
+sw $v1, 0($v0) 
+sw $v0, 20($sp) 
+lw $v0, 20($sp) 
+add $v0, $v0, 0 
+sw $v0, 12($sp) 
+lw $v0, 28($sp) 
+lw $v1, 12($sp) 
+lw $v0, 0($v1) 
+sw $v0, 28($sp) 
+lw $v0, 8($sp) 
+lw $v1, 28($sp) 
+lw $v0, 0($v1) 
+sw $v0, 8($sp) 
+add $v0, $0, 1 
+sw $v0, 64($sp) 
+add $v0, $0, 2 
+sw $v0, 40($sp) 
+add $v0, $0, 3 
+sw $v0, 44($sp) 
+add $v0, $0, 4 
+sw $v0, 48($sp) 
+add $v0, $0, 5 
+sw $v0, 52($sp) 
+add $v0, $0, 6 
+sw $v0, 32($sp) 
+lw $v0, 12($sp) 
+add $a0, $v0, 0 
+lw $v0, 64($sp) 
+add $a1, $v0, 0 
+lw $v0, 40($sp) 
+add $a2, $v0, 0 
+lw $v0, 44($sp) 
+add $a3, $v0, 0 
+lw $v0, 48($sp) 
+sw $v0, 0($sp) 
+lw $v0, 52($sp) 
+sw $v0, -4($sp) 
+lw $v0, 32($sp) 
+sw $v0, -8($sp) 
+lw $v0, 8($sp) 
+add $sp, $sp, -12 
+jalr $v0 
+add $sp, $sp, 12 
+add $v0, $v0, 0 
+sw $v0, 36($sp) 
+lw $v0, 36($sp) 
+add $a0, $0, $v0 
+jal .print 
+lw $ra, 4($sp) 
+add $sp, $sp, 4 
+add $v0, $0, 0 
+jr $ra 
+MT4_Start: 
+add $sp, $sp, -40 
+sw $ra, 4($sp) 
+sw $a0, 24($sp) 
+sw $a1, 28($sp) 
+sw $a2, 36($sp) 
+sw $a3, 40($sp) 
+lw $v0, 28($sp) 
+add $a0, $0, $v0 
+jal .print 
+lw $v0, 36($sp) 
+add $a0, $0, $v0 
+jal .print 
+lw $v0, 40($sp) 
+add $a0, $0, $v0 
+jal .print 
+lw $v0, 52($sp) 
+add $a0, $0, $v0 
+jal .print 
+lw $v0, 48($sp) 
+add $a0, $0, $v0 
+jal .print 
+lw $v0, 44($sp) 
+add $a0, $0, $v0 
+jal .print 
+lw $v0, 24($sp) 
+add $v0, $v0, 0 
+sw $v0, 20($sp) 
+lw $v0, 8($sp) 
+lw $v1, 20($sp) 
+lw $v0, 0($v1) 
+sw $v0, 8($sp) 
+lw $v0, 12($sp) 
+lw $v1, 8($sp) 
+lw $v0, 4($v1) 
+sw $v0, 12($sp) 
+lw $v0, 20($sp) 
+add $a0, $v0, 0 
+lw $v0, 44($sp) 
+add $a1, $v0, 0 
+lw $v0, 48($sp) 
+add $a2, $v0, 0 
+lw $v0, 52($sp) 
+add $a3, $v0, 0 
+lw $v0, 40($sp) 
+sw $v0, 0($sp) 
+lw $v0, 36($sp) 
+sw $v0, -4($sp) 
+lw $v0, 28($sp) 
+sw $v0, -8($sp) 
+lw $v0, 12($sp) 
+add $sp, $sp, -12 
+jalr $v0 
+add $sp, $sp, 12 
+add $v0, $v0, 0 
+sw $v0, 16($sp) 
+lw $v0, 16($sp) 
+add $v0, $v0, 0 
+sw $v0, 32($sp) 
+lw $v0, 32($sp) 
+add $v0, $v0, 0 
+lw $ra, 4($sp) 
+add $sp, $sp, 40 
+jr $ra 
+MT4_Change: 
+add $sp, $sp, -24 
+sw $ra, 4($sp) 
+sw $a0, 12($sp) 
+sw $a1, 16($sp) 
+sw $a2, 20($sp) 
+sw $a3, 24($sp) 
+lw $v0, 16($sp) 
+add $a0, $0, $v0 
+jal .print 
+lw $v0, 20($sp) 
+add $a0, $0, $v0 
+jal .print 
+lw $v0, 24($sp) 
+add $a0, $0, $v0 
+jal .print 
+lw $v0, 36($sp) 
+add $a0, $0, $v0 
+jal .print 
+lw $v0, 32($sp) 
+add $a0, $0, $v0 
+jal .print 
+lw $v0, 28($sp) 
+add $a0, $0, $v0 
+jal .print 
+add $v0, $0, 0 
+sw $v0, 8($sp) 
+lw $v0, 8($sp) 
+add $v0, $v0, 0 
+lw $ra, 4($sp) 
+add $sp, $sp, 24 
+jr $ra 
+.alloc: 
+add $v0, $0, 9 
+syscall 
+jr $ra 
+.print: 
+add $v0, $0, 1 
+syscall 
+add $a0, $0, 10 
+add $v0, $0, 11 
+syscall 
+jr $ra 

@@ -1,0 +1,120 @@
+.data 
+errormsg: .asciiz "\033[34m(mission) aborted.\033[0m \033[5;31mabandon ship!\033[0m \033[34mfarewell cruel world ...\033[0m\n" 
+.text 
+main: 
+add $sp, $sp, -40 
+sw $ra, 4($sp) 
+add $a0, $0, 4 
+jal .alloc 
+add $v0, $v0, 0 
+sw $v0, 16($sp) 
+add $a0, $0, 4 
+jal .alloc 
+add $v0, $v0, 0 
+sw $v0, 20($sp) 
+la $v0, Fac_ComputeFac 
+sw $v0, 28($sp) 
+lw $v0, 16($sp) 
+lw $v1, 28($sp) 
+sw $v1, 0($v0) 
+sw $v0, 16($sp) 
+lw $v0, 20($sp) 
+lw $v1, 16($sp) 
+sw $v1, 0($v0) 
+sw $v0, 20($sp) 
+lw $v0, 20($sp) 
+add $v0, $v0, 0 
+sw $v0, 12($sp) 
+lw $v0, 36($sp) 
+lw $v1, 12($sp) 
+lw $v0, 0($v1) 
+sw $v0, 36($sp) 
+lw $v0, 8($sp) 
+lw $v1, 36($sp) 
+lw $v0, 0($v1) 
+sw $v0, 8($sp) 
+add $v0, $0, 10 
+sw $v0, 32($sp) 
+lw $v0, 12($sp) 
+add $a0, $v0, 0 
+lw $v0, 32($sp) 
+add $a1, $v0, 0 
+lw $v0, 8($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 40($sp) 
+lw $v0, 40($sp) 
+add $a0, $0, $v0 
+jal .print 
+lw $ra, 4($sp) 
+add $sp, $sp, 4 
+add $v0, $0, 0 
+jr $ra 
+Fac_ComputeFac: 
+add $sp, $sp, -52 
+sw $ra, 4($sp) 
+sw $a0, 20($sp) 
+sw $a1, 24($sp) 
+add $v0, $0, 1 
+sw $v0, 40($sp) 
+lw $v0, 24($sp) 
+lw $v1, 40($sp) 
+slt $v0, $v0, $v1 
+sw $v0, 44($sp) 
+lw $v0, 44($sp) 
+bne $v0, 1, L0 
+add $v0, $0, 1 
+sw $v0, 28($sp) 
+j L1 
+L0: 
+sll $0, $0, 0 
+lw $v0, 20($sp) 
+add $v0, $v0, 0 
+sw $v0, 16($sp) 
+lw $v0, 8($sp) 
+lw $v1, 16($sp) 
+lw $v0, 0($v1) 
+sw $v0, 8($sp) 
+lw $v0, 12($sp) 
+lw $v1, 8($sp) 
+lw $v0, 0($v1) 
+sw $v0, 12($sp) 
+add $v0, $0, 1 
+sw $v0, 48($sp) 
+lw $v0, 24($sp) 
+lw $v1, 48($sp) 
+sub $v0, $v0, $v1 
+sw $v0, 52($sp) 
+lw $v0, 16($sp) 
+add $a0, $v0, 0 
+lw $v0, 52($sp) 
+add $a1, $v0, 0 
+lw $v0, 12($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 32($sp) 
+lw $v0, 24($sp) 
+lw $v1, 32($sp) 
+mul $v0, $v0, $v1 
+sw $v0, 36($sp) 
+lw $v0, 36($sp) 
+add $v0, $v0, 0 
+sw $v0, 28($sp) 
+L1: 
+sll $0, $0, 0 
+lw $v0, 28($sp) 
+add $v0, $v0, 0 
+lw $ra, 4($sp) 
+add $sp, $sp, 52 
+jr $ra 
+.alloc: 
+add $v0, $0, 9 
+syscall 
+jr $ra 
+.print: 
+add $v0, $0, 1 
+syscall 
+add $a0, $0, 10 
+add $v0, $0, 11 
+syscall 
+jr $ra 

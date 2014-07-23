@@ -1,0 +1,2923 @@
+.data 
+errormsg: .asciiz "\033[34m(mission) aborted.\033[0m \033[5;31mabandon ship!\033[0m \033[34mfarewell cruel world ...\033[0m\n" 
+.text 
+main: 
+add $sp, $sp, -36 
+sw $ra, 4($sp) 
+add $a0, $0, 4 
+jal .alloc 
+add $v0, $v0, 0 
+sw $v0, 20($sp) 
+add $a0, $0, 4 
+jal .alloc 
+add $v0, $v0, 0 
+sw $v0, 24($sp) 
+la $v0, TV_Start 
+sw $v0, 12($sp) 
+lw $v0, 20($sp) 
+lw $v1, 12($sp) 
+sw $v1, 0($v0) 
+sw $v0, 20($sp) 
+lw $v0, 24($sp) 
+lw $v1, 20($sp) 
+sw $v1, 0($v0) 
+sw $v0, 24($sp) 
+lw $v0, 24($sp) 
+add $v0, $v0, 0 
+sw $v0, 16($sp) 
+lw $v0, 32($sp) 
+lw $v1, 16($sp) 
+lw $v0, 0($v1) 
+sw $v0, 32($sp) 
+lw $v0, 36($sp) 
+lw $v1, 32($sp) 
+lw $v0, 0($v1) 
+sw $v0, 36($sp) 
+lw $v0, 16($sp) 
+add $a0, $v0, 0 
+lw $v0, 36($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 8($sp) 
+lw $v0, 8($sp) 
+add $a0, $0, $v0 
+jal .print 
+lw $ra, 4($sp) 
+add $sp, $sp, 4 
+add $v0, $0, 0 
+jr $ra 
+TV_Start: 
+add $sp, $sp, -544 
+sw $ra, 4($sp) 
+sw $a0, 88($sp) 
+add $a0, $0, 84 
+jal .alloc 
+add $v0, $v0, 0 
+sw $v0, 52($sp) 
+add $a0, $0, 28 
+jal .alloc 
+add $v0, $v0, 0 
+sw $v0, 216($sp) 
+la $v0, Tree_accept 
+sw $v0, 72($sp) 
+lw $v0, 52($sp) 
+lw $v1, 72($sp) 
+sw $v1, 80($v0) 
+sw $v0, 52($sp) 
+la $v0, Tree_RecPrint 
+sw $v0, 68($sp) 
+lw $v0, 52($sp) 
+lw $v1, 68($sp) 
+sw $v1, 76($v0) 
+sw $v0, 52($sp) 
+la $v0, Tree_Print 
+sw $v0, 64($sp) 
+lw $v0, 52($sp) 
+lw $v1, 64($sp) 
+sw $v1, 72($v0) 
+sw $v0, 52($sp) 
+la $v0, Tree_Search 
+sw $v0, 60($sp) 
+lw $v0, 52($sp) 
+lw $v1, 60($sp) 
+sw $v1, 68($v0) 
+sw $v0, 52($sp) 
+la $v0, Tree_RemoveLeft 
+sw $v0, 80($sp) 
+lw $v0, 52($sp) 
+lw $v1, 80($sp) 
+sw $v1, 64($v0) 
+sw $v0, 52($sp) 
+la $v0, Tree_RemoveRight 
+sw $v0, 76($sp) 
+lw $v0, 52($sp) 
+lw $v1, 76($sp) 
+sw $v1, 60($v0) 
+sw $v0, 52($sp) 
+la $v0, Tree_Remove 
+sw $v0, 56($sp) 
+lw $v0, 52($sp) 
+lw $v1, 56($sp) 
+sw $v1, 56($v0) 
+sw $v0, 52($sp) 
+la $v0, Tree_Delete 
+sw $v0, 28($sp) 
+lw $v0, 52($sp) 
+lw $v1, 28($sp) 
+sw $v1, 52($v0) 
+sw $v0, 52($sp) 
+la $v0, Tree_Insert 
+sw $v0, 24($sp) 
+lw $v0, 52($sp) 
+lw $v1, 24($sp) 
+sw $v1, 48($v0) 
+sw $v0, 52($sp) 
+la $v0, Tree_Compare 
+sw $v0, 20($sp) 
+lw $v0, 52($sp) 
+lw $v1, 20($sp) 
+sw $v1, 44($v0) 
+sw $v0, 52($sp) 
+la $v0, Tree_SetHas_Right 
+sw $v0, 16($sp) 
+lw $v0, 52($sp) 
+lw $v1, 16($sp) 
+sw $v1, 40($v0) 
+sw $v0, 52($sp) 
+la $v0, Tree_SetHas_Left 
+sw $v0, 44($sp) 
+lw $v0, 52($sp) 
+lw $v1, 44($sp) 
+sw $v1, 36($v0) 
+sw $v0, 52($sp) 
+la $v0, Tree_GetHas_Left 
+sw $v0, 40($sp) 
+lw $v0, 52($sp) 
+lw $v1, 40($sp) 
+sw $v1, 32($v0) 
+sw $v0, 52($sp) 
+la $v0, Tree_GetHas_Right 
+sw $v0, 36($sp) 
+lw $v0, 52($sp) 
+lw $v1, 36($sp) 
+sw $v1, 28($v0) 
+sw $v0, 52($sp) 
+la $v0, Tree_SetKey 
+sw $v0, 32($sp) 
+lw $v0, 52($sp) 
+lw $v1, 32($sp) 
+sw $v1, 24($v0) 
+sw $v0, 52($sp) 
+la $v0, Tree_GetKey 
+sw $v0, 48($sp) 
+lw $v0, 52($sp) 
+lw $v1, 48($sp) 
+sw $v1, 20($v0) 
+sw $v0, 52($sp) 
+la $v0, Tree_GetLeft 
+sw $v0, 12($sp) 
+lw $v0, 52($sp) 
+lw $v1, 12($sp) 
+sw $v1, 16($v0) 
+sw $v0, 52($sp) 
+la $v0, Tree_GetRight 
+sw $v0, 8($sp) 
+lw $v0, 52($sp) 
+lw $v1, 8($sp) 
+sw $v1, 12($v0) 
+sw $v0, 52($sp) 
+la $v0, Tree_SetLeft 
+sw $v0, 108($sp) 
+lw $v0, 52($sp) 
+lw $v1, 108($sp) 
+sw $v1, 8($v0) 
+sw $v0, 52($sp) 
+la $v0, Tree_SetRight 
+sw $v0, 104($sp) 
+lw $v0, 52($sp) 
+lw $v1, 104($sp) 
+sw $v1, 4($v0) 
+sw $v0, 52($sp) 
+la $v0, Tree_Init 
+sw $v0, 100($sp) 
+lw $v0, 52($sp) 
+lw $v1, 100($sp) 
+sw $v1, 0($v0) 
+sw $v0, 52($sp) 
+add $v0, $0, 4 
+sw $v0, 220($sp) 
+L0: 
+sll $0, $0, 0 
+add $v0, $0, 28 
+sw $v0, 96($sp) 
+lw $v0, 220($sp) 
+lw $v1, 96($sp) 
+slt $v0, $v0, $v1 
+sw $v0, 124($sp) 
+lw $v0, 124($sp) 
+bne $v0, 1, L1 
+lw $v0, 216($sp) 
+lw $v1, 220($sp) 
+add $v0, $v0, $v1 
+sw $v0, 120($sp) 
+add $v0, $0, 0 
+sw $v0, 116($sp) 
+lw $v0, 120($sp) 
+lw $v1, 116($sp) 
+sw $v1, 0($v0) 
+sw $v0, 120($sp) 
+lw $v0, 220($sp) 
+add $v0, $v0, 4 
+sw $v0, 220($sp) 
+j L0 
+L1: 
+sll $0, $0, 0 
+lw $v0, 216($sp) 
+lw $v1, 52($sp) 
+sw $v1, 0($v0) 
+sw $v0, 216($sp) 
+lw $v0, 216($sp) 
+add $v0, $v0, 0 
+sw $v0, 92($sp) 
+lw $v0, 92($sp) 
+add $v0, $v0, 0 
+sw $v0, 276($sp) 
+lw $v0, 260($sp) 
+lw $v1, 276($sp) 
+lw $v0, 0($v1) 
+sw $v0, 260($sp) 
+lw $v0, 264($sp) 
+lw $v1, 260($sp) 
+lw $v0, 0($v1) 
+sw $v0, 264($sp) 
+add $v0, $0, 16 
+sw $v0, 112($sp) 
+lw $v0, 276($sp) 
+add $a0, $v0, 0 
+lw $v0, 112($sp) 
+add $a1, $v0, 0 
+lw $v0, 264($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 252($sp) 
+lw $v0, 92($sp) 
+add $v0, $v0, 0 
+sw $v0, 236($sp) 
+lw $v0, 280($sp) 
+lw $v1, 236($sp) 
+lw $v0, 0($v1) 
+sw $v0, 280($sp) 
+lw $v0, 228($sp) 
+lw $v1, 280($sp) 
+lw $v0, 72($v1) 
+sw $v0, 228($sp) 
+lw $v0, 236($sp) 
+add $a0, $v0, 0 
+lw $v0, 228($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 244($sp) 
+add $v0, $0, 100000000 
+sw $v0, 232($sp) 
+lw $v0, 232($sp) 
+add $a0, $0, $v0 
+jal .print 
+lw $v0, 92($sp) 
+add $v0, $v0, 0 
+sw $v0, 288($sp) 
+lw $v0, 240($sp) 
+lw $v1, 288($sp) 
+lw $v0, 0($v1) 
+sw $v0, 240($sp) 
+lw $v0, 248($sp) 
+lw $v1, 240($sp) 
+lw $v0, 48($v1) 
+sw $v0, 248($sp) 
+add $v0, $0, 8 
+sw $v0, 224($sp) 
+lw $v0, 288($sp) 
+add $a0, $v0, 0 
+lw $v0, 224($sp) 
+add $a1, $v0, 0 
+lw $v0, 248($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 284($sp) 
+lw $v0, 92($sp) 
+add $v0, $v0, 0 
+sw $v0, 312($sp) 
+lw $v0, 292($sp) 
+lw $v1, 312($sp) 
+lw $v0, 0($v1) 
+sw $v0, 292($sp) 
+lw $v0, 296($sp) 
+lw $v1, 292($sp) 
+lw $v0, 48($v1) 
+sw $v0, 296($sp) 
+add $v0, $0, 24 
+sw $v0, 272($sp) 
+lw $v0, 312($sp) 
+add $a0, $v0, 0 
+lw $v0, 272($sp) 
+add $a1, $v0, 0 
+lw $v0, 296($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 268($sp) 
+lw $v0, 92($sp) 
+add $v0, $v0, 0 
+sw $v0, 324($sp) 
+lw $v0, 316($sp) 
+lw $v1, 324($sp) 
+lw $v0, 0($v1) 
+sw $v0, 316($sp) 
+lw $v0, 320($sp) 
+lw $v1, 316($sp) 
+lw $v0, 48($v1) 
+sw $v0, 320($sp) 
+add $v0, $0, 4 
+sw $v0, 256($sp) 
+lw $v0, 324($sp) 
+add $a0, $v0, 0 
+lw $v0, 256($sp) 
+add $a1, $v0, 0 
+lw $v0, 320($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 212($sp) 
+lw $v0, 92($sp) 
+add $v0, $v0, 0 
+sw $v0, 308($sp) 
+lw $v0, 300($sp) 
+lw $v1, 308($sp) 
+lw $v0, 0($v1) 
+sw $v0, 300($sp) 
+lw $v0, 304($sp) 
+lw $v1, 300($sp) 
+lw $v0, 48($v1) 
+sw $v0, 304($sp) 
+add $v0, $0, 12 
+sw $v0, 208($sp) 
+lw $v0, 308($sp) 
+add $a0, $v0, 0 
+lw $v0, 208($sp) 
+add $a1, $v0, 0 
+lw $v0, 304($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 372($sp) 
+lw $v0, 92($sp) 
+add $v0, $v0, 0 
+sw $v0, 136($sp) 
+lw $v0, 128($sp) 
+lw $v1, 136($sp) 
+lw $v0, 0($v1) 
+sw $v0, 128($sp) 
+lw $v0, 132($sp) 
+lw $v1, 128($sp) 
+lw $v0, 48($v1) 
+sw $v0, 132($sp) 
+add $v0, $0, 20 
+sw $v0, 388($sp) 
+lw $v0, 136($sp) 
+add $a0, $v0, 0 
+lw $v0, 388($sp) 
+add $a1, $v0, 0 
+lw $v0, 132($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 384($sp) 
+lw $v0, 92($sp) 
+add $v0, $v0, 0 
+sw $v0, 156($sp) 
+lw $v0, 140($sp) 
+lw $v1, 156($sp) 
+lw $v0, 0($v1) 
+sw $v0, 140($sp) 
+lw $v0, 152($sp) 
+lw $v1, 140($sp) 
+lw $v0, 48($v1) 
+sw $v0, 152($sp) 
+add $v0, $0, 28 
+sw $v0, 380($sp) 
+lw $v0, 156($sp) 
+add $a0, $v0, 0 
+lw $v0, 380($sp) 
+add $a1, $v0, 0 
+lw $v0, 152($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 376($sp) 
+lw $v0, 92($sp) 
+add $v0, $v0, 0 
+sw $v0, 144($sp) 
+lw $v0, 160($sp) 
+lw $v1, 144($sp) 
+lw $v0, 0($v1) 
+sw $v0, 160($sp) 
+lw $v0, 164($sp) 
+lw $v1, 160($sp) 
+lw $v0, 48($v1) 
+sw $v0, 164($sp) 
+add $v0, $0, 14 
+sw $v0, 404($sp) 
+lw $v0, 144($sp) 
+add $a0, $v0, 0 
+lw $v0, 404($sp) 
+add $a1, $v0, 0 
+lw $v0, 164($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 400($sp) 
+lw $v0, 92($sp) 
+add $v0, $v0, 0 
+sw $v0, 168($sp) 
+lw $v0, 148($sp) 
+lw $v1, 168($sp) 
+lw $v0, 0($v1) 
+sw $v0, 148($sp) 
+lw $v0, 184($sp) 
+lw $v1, 148($sp) 
+lw $v0, 72($v1) 
+sw $v0, 184($sp) 
+lw $v0, 168($sp) 
+add $a0, $v0, 0 
+lw $v0, 184($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 396($sp) 
+add $v0, $0, 100000000 
+sw $v0, 392($sp) 
+lw $v0, 392($sp) 
+add $a0, $0, $v0 
+jal .print 
+add $a0, $0, 4 
+jal .alloc 
+add $v0, $v0, 0 
+sw $v0, 172($sp) 
+add $a0, $0, 12 
+jal .alloc 
+add $v0, $v0, 0 
+sw $v0, 176($sp) 
+la $v0, MyVisitor_visit 
+sw $v0, 368($sp) 
+lw $v0, 172($sp) 
+lw $v1, 368($sp) 
+sw $v1, 0($v0) 
+sw $v0, 172($sp) 
+add $v0, $0, 4 
+sw $v0, 180($sp) 
+L2: 
+sll $0, $0, 0 
+add $v0, $0, 12 
+sw $v0, 332($sp) 
+lw $v0, 180($sp) 
+lw $v1, 332($sp) 
+slt $v0, $v0, $v1 
+sw $v0, 328($sp) 
+lw $v0, 328($sp) 
+bne $v0, 1, L3 
+lw $v0, 176($sp) 
+lw $v1, 180($sp) 
+add $v0, $v0, $v1 
+sw $v0, 348($sp) 
+add $v0, $0, 0 
+sw $v0, 344($sp) 
+lw $v0, 348($sp) 
+lw $v1, 344($sp) 
+sw $v1, 0($v0) 
+sw $v0, 348($sp) 
+lw $v0, 180($sp) 
+add $v0, $v0, 4 
+sw $v0, 180($sp) 
+j L2 
+L3: 
+sll $0, $0, 0 
+lw $v0, 176($sp) 
+lw $v1, 172($sp) 
+sw $v1, 0($v0) 
+sw $v0, 176($sp) 
+lw $v0, 176($sp) 
+add $v0, $v0, 0 
+sw $v0, 84($sp) 
+add $v0, $0, 50000000 
+sw $v0, 340($sp) 
+lw $v0, 340($sp) 
+add $a0, $0, $v0 
+jal .print 
+lw $v0, 92($sp) 
+add $v0, $v0, 0 
+sw $v0, 200($sp) 
+lw $v0, 192($sp) 
+lw $v1, 200($sp) 
+lw $v0, 0($v1) 
+sw $v0, 192($sp) 
+lw $v0, 196($sp) 
+lw $v1, 192($sp) 
+lw $v0, 80($v1) 
+sw $v0, 196($sp) 
+lw $v0, 200($sp) 
+add $a0, $v0, 0 
+lw $v0, 84($sp) 
+add $a1, $v0, 0 
+lw $v0, 196($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 336($sp) 
+add $v0, $0, 100000000 
+sw $v0, 364($sp) 
+lw $v0, 364($sp) 
+add $a0, $0, $v0 
+jal .print 
+lw $v0, 92($sp) 
+add $v0, $v0, 0 
+sw $v0, 468($sp) 
+lw $v0, 204($sp) 
+lw $v1, 468($sp) 
+lw $v0, 0($v1) 
+sw $v0, 204($sp) 
+lw $v0, 188($sp) 
+lw $v1, 204($sp) 
+lw $v0, 68($v1) 
+sw $v0, 188($sp) 
+add $v0, $0, 24 
+sw $v0, 360($sp) 
+lw $v0, 468($sp) 
+add $a0, $v0, 0 
+lw $v0, 360($sp) 
+add $a1, $v0, 0 
+lw $v0, 188($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 356($sp) 
+lw $v0, 356($sp) 
+add $a0, $0, $v0 
+jal .print 
+lw $v0, 92($sp) 
+add $v0, $v0, 0 
+sw $v0, 484($sp) 
+lw $v0, 464($sp) 
+lw $v1, 484($sp) 
+lw $v0, 0($v1) 
+sw $v0, 464($sp) 
+lw $v0, 460($sp) 
+lw $v1, 464($sp) 
+lw $v0, 68($v1) 
+sw $v0, 460($sp) 
+add $v0, $0, 12 
+sw $v0, 352($sp) 
+lw $v0, 484($sp) 
+add $a0, $v0, 0 
+lw $v0, 352($sp) 
+add $a1, $v0, 0 
+lw $v0, 460($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 428($sp) 
+lw $v0, 428($sp) 
+add $a0, $0, $v0 
+jal .print 
+lw $v0, 92($sp) 
+add $v0, $v0, 0 
+sw $v0, 472($sp) 
+lw $v0, 480($sp) 
+lw $v1, 472($sp) 
+lw $v0, 0($v1) 
+sw $v0, 480($sp) 
+lw $v0, 476($sp) 
+lw $v1, 480($sp) 
+lw $v0, 68($v1) 
+sw $v0, 476($sp) 
+add $v0, $0, 16 
+sw $v0, 424($sp) 
+lw $v0, 472($sp) 
+add $a0, $v0, 0 
+lw $v0, 424($sp) 
+add $a1, $v0, 0 
+lw $v0, 476($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 420($sp) 
+lw $v0, 420($sp) 
+add $a0, $0, $v0 
+jal .print 
+lw $v0, 92($sp) 
+add $v0, $v0, 0 
+sw $v0, 488($sp) 
+lw $v0, 496($sp) 
+lw $v1, 488($sp) 
+lw $v0, 0($v1) 
+sw $v0, 496($sp) 
+lw $v0, 492($sp) 
+lw $v1, 496($sp) 
+lw $v0, 68($v1) 
+sw $v0, 492($sp) 
+add $v0, $0, 50 
+sw $v0, 444($sp) 
+lw $v0, 488($sp) 
+add $a0, $v0, 0 
+lw $v0, 444($sp) 
+add $a1, $v0, 0 
+lw $v0, 492($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 440($sp) 
+lw $v0, 440($sp) 
+add $a0, $0, $v0 
+jal .print 
+lw $v0, 92($sp) 
+add $v0, $v0, 0 
+sw $v0, 512($sp) 
+lw $v0, 520($sp) 
+lw $v1, 512($sp) 
+lw $v0, 0($v1) 
+sw $v0, 520($sp) 
+lw $v0, 516($sp) 
+lw $v1, 520($sp) 
+lw $v0, 68($v1) 
+sw $v0, 516($sp) 
+add $v0, $0, 12 
+sw $v0, 436($sp) 
+lw $v0, 512($sp) 
+add $a0, $v0, 0 
+lw $v0, 436($sp) 
+add $a1, $v0, 0 
+lw $v0, 516($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 432($sp) 
+lw $v0, 432($sp) 
+add $a0, $0, $v0 
+jal .print 
+lw $v0, 92($sp) 
+add $v0, $v0, 0 
+sw $v0, 532($sp) 
+lw $v0, 508($sp) 
+lw $v1, 532($sp) 
+lw $v0, 0($v1) 
+sw $v0, 508($sp) 
+lw $v0, 536($sp) 
+lw $v1, 508($sp) 
+lw $v0, 52($v1) 
+sw $v0, 536($sp) 
+add $v0, $0, 12 
+sw $v0, 456($sp) 
+lw $v0, 532($sp) 
+add $a0, $v0, 0 
+lw $v0, 456($sp) 
+add $a1, $v0, 0 
+lw $v0, 536($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 452($sp) 
+lw $v0, 92($sp) 
+add $v0, $v0, 0 
+sw $v0, 544($sp) 
+lw $v0, 528($sp) 
+lw $v1, 544($sp) 
+lw $v0, 0($v1) 
+sw $v0, 528($sp) 
+lw $v0, 524($sp) 
+lw $v1, 528($sp) 
+lw $v0, 72($v1) 
+sw $v0, 524($sp) 
+lw $v0, 544($sp) 
+add $a0, $v0, 0 
+lw $v0, 524($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 448($sp) 
+lw $v0, 92($sp) 
+add $v0, $v0, 0 
+sw $v0, 504($sp) 
+lw $v0, 540($sp) 
+lw $v1, 504($sp) 
+lw $v0, 0($v1) 
+sw $v0, 540($sp) 
+lw $v0, 500($sp) 
+lw $v1, 540($sp) 
+lw $v0, 68($v1) 
+sw $v0, 500($sp) 
+add $v0, $0, 12 
+sw $v0, 416($sp) 
+lw $v0, 504($sp) 
+add $a0, $v0, 0 
+lw $v0, 416($sp) 
+add $a1, $v0, 0 
+lw $v0, 500($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 412($sp) 
+lw $v0, 412($sp) 
+add $a0, $0, $v0 
+jal .print 
+add $v0, $0, 0 
+sw $v0, 408($sp) 
+lw $v0, 408($sp) 
+add $v0, $v0, 0 
+lw $ra, 4($sp) 
+add $sp, $sp, 544 
+jr $ra 
+Tree_Init: 
+add $sp, $sp, -24 
+sw $ra, 4($sp) 
+sw $a0, 20($sp) 
+sw $a1, 24($sp) 
+lw $v0, 20($sp) 
+lw $v1, 24($sp) 
+sw $v1, 12($v0) 
+sw $v0, 20($sp) 
+add $v0, $0, 0 
+sw $v0, 8($sp) 
+lw $v0, 20($sp) 
+lw $v1, 8($sp) 
+sw $v1, 16($v0) 
+sw $v0, 20($sp) 
+add $v0, $0, 0 
+sw $v0, 16($sp) 
+lw $v0, 20($sp) 
+lw $v1, 16($sp) 
+sw $v1, 20($v0) 
+sw $v0, 20($sp) 
+add $v0, $0, 1 
+sw $v0, 12($sp) 
+lw $v0, 12($sp) 
+add $v0, $v0, 0 
+lw $ra, 4($sp) 
+add $sp, $sp, 24 
+jr $ra 
+Tree_SetRight: 
+add $sp, $sp, -16 
+sw $ra, 4($sp) 
+sw $a0, 12($sp) 
+sw $a1, 16($sp) 
+lw $v0, 12($sp) 
+lw $v1, 16($sp) 
+sw $v1, 8($v0) 
+sw $v0, 12($sp) 
+add $v0, $0, 1 
+sw $v0, 8($sp) 
+lw $v0, 8($sp) 
+add $v0, $v0, 0 
+lw $ra, 4($sp) 
+add $sp, $sp, 16 
+jr $ra 
+Tree_SetLeft: 
+add $sp, $sp, -16 
+sw $ra, 4($sp) 
+sw $a0, 12($sp) 
+sw $a1, 16($sp) 
+lw $v0, 12($sp) 
+lw $v1, 16($sp) 
+sw $v1, 4($v0) 
+sw $v0, 12($sp) 
+add $v0, $0, 1 
+sw $v0, 8($sp) 
+lw $v0, 8($sp) 
+add $v0, $v0, 0 
+lw $ra, 4($sp) 
+add $sp, $sp, 16 
+jr $ra 
+Tree_GetRight: 
+add $sp, $sp, -12 
+sw $ra, 4($sp) 
+sw $a0, 12($sp) 
+lw $v0, 8($sp) 
+lw $v1, 12($sp) 
+lw $v0, 8($v1) 
+sw $v0, 8($sp) 
+lw $v0, 8($sp) 
+add $v0, $v0, 0 
+lw $ra, 4($sp) 
+add $sp, $sp, 12 
+jr $ra 
+Tree_GetLeft: 
+add $sp, $sp, -12 
+sw $ra, 4($sp) 
+sw $a0, 12($sp) 
+lw $v0, 8($sp) 
+lw $v1, 12($sp) 
+lw $v0, 4($v1) 
+sw $v0, 8($sp) 
+lw $v0, 8($sp) 
+add $v0, $v0, 0 
+lw $ra, 4($sp) 
+add $sp, $sp, 12 
+jr $ra 
+Tree_GetKey: 
+add $sp, $sp, -12 
+sw $ra, 4($sp) 
+sw $a0, 12($sp) 
+lw $v0, 8($sp) 
+lw $v1, 12($sp) 
+lw $v0, 12($v1) 
+sw $v0, 8($sp) 
+lw $v0, 8($sp) 
+add $v0, $v0, 0 
+lw $ra, 4($sp) 
+add $sp, $sp, 12 
+jr $ra 
+Tree_SetKey: 
+add $sp, $sp, -16 
+sw $ra, 4($sp) 
+sw $a0, 8($sp) 
+sw $a1, 12($sp) 
+lw $v0, 8($sp) 
+lw $v1, 12($sp) 
+sw $v1, 12($v0) 
+sw $v0, 8($sp) 
+add $v0, $0, 1 
+sw $v0, 16($sp) 
+lw $v0, 16($sp) 
+add $v0, $v0, 0 
+lw $ra, 4($sp) 
+add $sp, $sp, 16 
+jr $ra 
+Tree_GetHas_Right: 
+add $sp, $sp, -12 
+sw $ra, 4($sp) 
+sw $a0, 12($sp) 
+lw $v0, 8($sp) 
+lw $v1, 12($sp) 
+lw $v0, 20($v1) 
+sw $v0, 8($sp) 
+lw $v0, 8($sp) 
+add $v0, $v0, 0 
+lw $ra, 4($sp) 
+add $sp, $sp, 12 
+jr $ra 
+Tree_GetHas_Left: 
+add $sp, $sp, -12 
+sw $ra, 4($sp) 
+sw $a0, 12($sp) 
+lw $v0, 8($sp) 
+lw $v1, 12($sp) 
+lw $v0, 16($v1) 
+sw $v0, 8($sp) 
+lw $v0, 8($sp) 
+add $v0, $v0, 0 
+lw $ra, 4($sp) 
+add $sp, $sp, 12 
+jr $ra 
+Tree_SetHas_Left: 
+add $sp, $sp, -16 
+sw $ra, 4($sp) 
+sw $a0, 8($sp) 
+sw $a1, 12($sp) 
+lw $v0, 8($sp) 
+lw $v1, 12($sp) 
+sw $v1, 16($v0) 
+sw $v0, 8($sp) 
+add $v0, $0, 1 
+sw $v0, 16($sp) 
+lw $v0, 16($sp) 
+add $v0, $v0, 0 
+lw $ra, 4($sp) 
+add $sp, $sp, 16 
+jr $ra 
+Tree_SetHas_Right: 
+add $sp, $sp, -16 
+sw $ra, 4($sp) 
+sw $a0, 12($sp) 
+sw $a1, 16($sp) 
+lw $v0, 12($sp) 
+lw $v1, 16($sp) 
+sw $v1, 20($v0) 
+sw $v0, 12($sp) 
+add $v0, $0, 1 
+sw $v0, 8($sp) 
+lw $v0, 8($sp) 
+add $v0, $v0, 0 
+lw $ra, 4($sp) 
+add $sp, $sp, 16 
+jr $ra 
+Tree_Compare: 
+add $sp, $sp, -40 
+sw $ra, 4($sp) 
+sw $a0, 32($sp) 
+sw $a1, 36($sp) 
+sw $a2, 40($sp) 
+lw $v0, 40($sp) 
+add $v0, $v0, 1 
+sw $v0, 28($sp) 
+lw $v0, 36($sp) 
+lw $v1, 40($sp) 
+slt $v0, $v0, $v1 
+sw $v0, 20($sp) 
+lw $v0, 20($sp) 
+bne $v0, 1, L4 
+add $v0, $0, 0 
+sw $v0, 24($sp) 
+j L5 
+L4: 
+sll $0, $0, 0 
+add $v0, $0, 1 
+sw $v0, 16($sp) 
+lw $v0, 36($sp) 
+lw $v1, 28($sp) 
+slt $v0, $v0, $v1 
+sw $v0, 12($sp) 
+lw $v0, 16($sp) 
+lw $v1, 12($sp) 
+sub $v0, $v0, $v1 
+sw $v0, 8($sp) 
+lw $v0, 8($sp) 
+bne $v0, 1, L6 
+add $v0, $0, 0 
+sw $v0, 24($sp) 
+j L7 
+L6: 
+sll $0, $0, 0 
+add $v0, $0, 1 
+sw $v0, 24($sp) 
+L7: 
+sll $0, $0, 0 
+L5: 
+sll $0, $0, 0 
+lw $v0, 24($sp) 
+add $v0, $v0, 0 
+lw $ra, 4($sp) 
+add $sp, $sp, 40 
+jr $ra 
+Tree_Insert: 
+add $sp, $sp, -316 
+sw $ra, 4($sp) 
+sw $a0, 120($sp) 
+sw $a1, 124($sp) 
+add $a0, $0, 84 
+jal .alloc 
+add $v0, $v0, 0 
+sw $v0, 72($sp) 
+add $a0, $0, 28 
+jal .alloc 
+add $v0, $v0, 0 
+sw $v0, 68($sp) 
+la $v0, Tree_accept 
+sw $v0, 228($sp) 
+lw $v0, 72($sp) 
+lw $v1, 228($sp) 
+sw $v1, 80($v0) 
+sw $v0, 72($sp) 
+la $v0, Tree_RecPrint 
+sw $v0, 224($sp) 
+lw $v0, 72($sp) 
+lw $v1, 224($sp) 
+sw $v1, 76($v0) 
+sw $v0, 72($sp) 
+la $v0, Tree_Print 
+sw $v0, 220($sp) 
+lw $v0, 72($sp) 
+lw $v1, 220($sp) 
+sw $v1, 72($v0) 
+sw $v0, 72($sp) 
+la $v0, Tree_Search 
+sw $v0, 216($sp) 
+lw $v0, 72($sp) 
+lw $v1, 216($sp) 
+sw $v1, 68($v0) 
+sw $v0, 72($sp) 
+la $v0, Tree_RemoveLeft 
+sw $v0, 232($sp) 
+lw $v0, 72($sp) 
+lw $v1, 232($sp) 
+sw $v1, 64($v0) 
+sw $v0, 72($sp) 
+la $v0, Tree_RemoveRight 
+sw $v0, 180($sp) 
+lw $v0, 72($sp) 
+lw $v1, 180($sp) 
+sw $v1, 60($v0) 
+sw $v0, 72($sp) 
+la $v0, Tree_Remove 
+sw $v0, 176($sp) 
+lw $v0, 72($sp) 
+lw $v1, 176($sp) 
+sw $v1, 56($v0) 
+sw $v0, 72($sp) 
+la $v0, Tree_Delete 
+sw $v0, 196($sp) 
+lw $v0, 72($sp) 
+lw $v1, 196($sp) 
+sw $v1, 52($v0) 
+sw $v0, 72($sp) 
+la $v0, Tree_Insert 
+sw $v0, 192($sp) 
+lw $v0, 72($sp) 
+lw $v1, 192($sp) 
+sw $v1, 48($v0) 
+sw $v0, 72($sp) 
+la $v0, Tree_Compare 
+sw $v0, 188($sp) 
+lw $v0, 72($sp) 
+lw $v1, 188($sp) 
+sw $v1, 44($v0) 
+sw $v0, 72($sp) 
+la $v0, Tree_SetHas_Right 
+sw $v0, 184($sp) 
+lw $v0, 72($sp) 
+lw $v1, 184($sp) 
+sw $v1, 40($v0) 
+sw $v0, 72($sp) 
+la $v0, Tree_SetHas_Left 
+sw $v0, 212($sp) 
+lw $v0, 72($sp) 
+lw $v1, 212($sp) 
+sw $v1, 36($v0) 
+sw $v0, 72($sp) 
+la $v0, Tree_GetHas_Left 
+sw $v0, 208($sp) 
+lw $v0, 72($sp) 
+lw $v1, 208($sp) 
+sw $v1, 32($v0) 
+sw $v0, 72($sp) 
+la $v0, Tree_GetHas_Right 
+sw $v0, 204($sp) 
+lw $v0, 72($sp) 
+lw $v1, 204($sp) 
+sw $v1, 28($v0) 
+sw $v0, 72($sp) 
+la $v0, Tree_SetKey 
+sw $v0, 200($sp) 
+lw $v0, 72($sp) 
+lw $v1, 200($sp) 
+sw $v1, 24($v0) 
+sw $v0, 72($sp) 
+la $v0, Tree_GetKey 
+sw $v0, 288($sp) 
+lw $v0, 72($sp) 
+lw $v1, 288($sp) 
+sw $v1, 20($v0) 
+sw $v0, 72($sp) 
+la $v0, Tree_GetLeft 
+sw $v0, 284($sp) 
+lw $v0, 72($sp) 
+lw $v1, 284($sp) 
+sw $v1, 16($v0) 
+sw $v0, 72($sp) 
+la $v0, Tree_GetRight 
+sw $v0, 280($sp) 
+lw $v0, 72($sp) 
+lw $v1, 280($sp) 
+sw $v1, 12($v0) 
+sw $v0, 72($sp) 
+la $v0, Tree_SetLeft 
+sw $v0, 304($sp) 
+lw $v0, 72($sp) 
+lw $v1, 304($sp) 
+sw $v1, 8($v0) 
+sw $v0, 72($sp) 
+la $v0, Tree_SetRight 
+sw $v0, 300($sp) 
+lw $v0, 72($sp) 
+lw $v1, 300($sp) 
+sw $v1, 4($v0) 
+sw $v0, 72($sp) 
+la $v0, Tree_Init 
+sw $v0, 296($sp) 
+lw $v0, 72($sp) 
+lw $v1, 296($sp) 
+sw $v1, 0($v0) 
+sw $v0, 72($sp) 
+add $v0, $0, 4 
+sw $v0, 64($sp) 
+L8: 
+sll $0, $0, 0 
+add $v0, $0, 28 
+sw $v0, 292($sp) 
+lw $v0, 64($sp) 
+lw $v1, 292($sp) 
+slt $v0, $v0, $v1 
+sw $v0, 316($sp) 
+lw $v0, 316($sp) 
+bne $v0, 1, L9 
+lw $v0, 68($sp) 
+lw $v1, 64($sp) 
+add $v0, $v0, $v1 
+sw $v0, 312($sp) 
+add $v0, $0, 0 
+sw $v0, 308($sp) 
+lw $v0, 312($sp) 
+lw $v1, 308($sp) 
+sw $v1, 0($v0) 
+sw $v0, 312($sp) 
+lw $v0, 64($sp) 
+add $v0, $v0, 4 
+sw $v0, 64($sp) 
+j L8 
+L9: 
+sll $0, $0, 0 
+lw $v0, 68($sp) 
+lw $v1, 72($sp) 
+sw $v1, 0($v0) 
+sw $v0, 68($sp) 
+lw $v0, 68($sp) 
+add $v0, $v0, 0 
+sw $v0, 88($sp) 
+lw $v0, 88($sp) 
+add $v0, $v0, 0 
+sw $v0, 80($sp) 
+lw $v0, 60($sp) 
+lw $v1, 80($sp) 
+lw $v0, 0($v1) 
+sw $v0, 60($sp) 
+lw $v0, 84($sp) 
+lw $v1, 60($sp) 
+lw $v0, 0($v1) 
+sw $v0, 84($sp) 
+lw $v0, 80($sp) 
+add $a0, $v0, 0 
+lw $v0, 124($sp) 
+add $a1, $v0, 0 
+lw $v0, 84($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 252($sp) 
+lw $v0, 120($sp) 
+add $v0, $v0, 0 
+sw $v0, 92($sp) 
+add $v0, $0, 1 
+sw $v0, 96($sp) 
+L10: 
+sll $0, $0, 0 
+lw $v0, 96($sp) 
+bne $v0, 1, L11 
+lw $v0, 92($sp) 
+add $v0, $v0, 0 
+sw $v0, 12($sp) 
+lw $v0, 76($sp) 
+lw $v1, 12($sp) 
+lw $v0, 0($v1) 
+sw $v0, 76($sp) 
+lw $v0, 16($sp) 
+lw $v1, 76($sp) 
+lw $v0, 20($v1) 
+sw $v0, 16($sp) 
+lw $v0, 12($sp) 
+add $a0, $v0, 0 
+lw $v0, 16($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 248($sp) 
+lw $v0, 248($sp) 
+add $v0, $v0, 0 
+sw $v0, 172($sp) 
+lw $v0, 124($sp) 
+lw $v1, 172($sp) 
+slt $v0, $v0, $v1 
+sw $v0, 244($sp) 
+lw $v0, 244($sp) 
+bne $v0, 1, L12 
+lw $v0, 92($sp) 
+add $v0, $v0, 0 
+sw $v0, 28($sp) 
+lw $v0, 8($sp) 
+lw $v1, 28($sp) 
+lw $v0, 0($v1) 
+sw $v0, 8($sp) 
+lw $v0, 32($sp) 
+lw $v1, 8($sp) 
+lw $v0, 32($v1) 
+sw $v0, 32($sp) 
+lw $v0, 28($sp) 
+add $a0, $v0, 0 
+lw $v0, 32($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 240($sp) 
+lw $v0, 240($sp) 
+bne $v0, 1, L13 
+lw $v0, 92($sp) 
+add $v0, $v0, 0 
+sw $v0, 44($sp) 
+lw $v0, 24($sp) 
+lw $v1, 44($sp) 
+lw $v0, 0($v1) 
+sw $v0, 24($sp) 
+lw $v0, 20($sp) 
+lw $v1, 24($sp) 
+lw $v0, 16($v1) 
+sw $v0, 20($sp) 
+lw $v0, 44($sp) 
+add $a0, $v0, 0 
+lw $v0, 20($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 268($sp) 
+lw $v0, 268($sp) 
+add $v0, $v0, 0 
+sw $v0, 92($sp) 
+j L14 
+L13: 
+sll $0, $0, 0 
+add $v0, $0, 0 
+sw $v0, 96($sp) 
+lw $v0, 92($sp) 
+add $v0, $v0, 0 
+sw $v0, 144($sp) 
+lw $v0, 40($sp) 
+lw $v1, 144($sp) 
+lw $v0, 0($v1) 
+sw $v0, 40($sp) 
+lw $v0, 36($sp) 
+lw $v1, 40($sp) 
+lw $v0, 36($v1) 
+sw $v0, 36($sp) 
+add $v0, $0, 1 
+sw $v0, 264($sp) 
+lw $v0, 144($sp) 
+add $a0, $v0, 0 
+lw $v0, 264($sp) 
+add $a1, $v0, 0 
+lw $v0, 36($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 260($sp) 
+lw $v0, 92($sp) 
+add $v0, $v0, 0 
+sw $v0, 132($sp) 
+lw $v0, 140($sp) 
+lw $v1, 132($sp) 
+lw $v0, 0($v1) 
+sw $v0, 140($sp) 
+lw $v0, 136($sp) 
+lw $v1, 140($sp) 
+lw $v0, 8($v1) 
+sw $v0, 136($sp) 
+lw $v0, 132($sp) 
+add $a0, $v0, 0 
+lw $v0, 88($sp) 
+add $a1, $v0, 0 
+lw $v0, 136($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 256($sp) 
+L14: 
+sll $0, $0, 0 
+j L15 
+L12: 
+sll $0, $0, 0 
+lw $v0, 92($sp) 
+add $v0, $v0, 0 
+sw $v0, 152($sp) 
+lw $v0, 160($sp) 
+lw $v1, 152($sp) 
+lw $v0, 0($v1) 
+sw $v0, 160($sp) 
+lw $v0, 156($sp) 
+lw $v1, 160($sp) 
+lw $v0, 28($v1) 
+sw $v0, 156($sp) 
+lw $v0, 152($sp) 
+add $a0, $v0, 0 
+lw $v0, 156($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 276($sp) 
+lw $v0, 276($sp) 
+bne $v0, 1, L16 
+lw $v0, 92($sp) 
+add $v0, $v0, 0 
+sw $v0, 164($sp) 
+lw $v0, 148($sp) 
+lw $v1, 164($sp) 
+lw $v0, 0($v1) 
+sw $v0, 148($sp) 
+lw $v0, 168($sp) 
+lw $v1, 148($sp) 
+lw $v0, 12($v1) 
+sw $v0, 168($sp) 
+lw $v0, 164($sp) 
+add $a0, $v0, 0 
+lw $v0, 168($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 272($sp) 
+lw $v0, 272($sp) 
+add $v0, $v0, 0 
+sw $v0, 92($sp) 
+j L17 
+L16: 
+sll $0, $0, 0 
+add $v0, $0, 0 
+sw $v0, 96($sp) 
+lw $v0, 92($sp) 
+add $v0, $v0, 0 
+sw $v0, 108($sp) 
+lw $v0, 128($sp) 
+lw $v1, 108($sp) 
+lw $v0, 0($v1) 
+sw $v0, 128($sp) 
+lw $v0, 112($sp) 
+lw $v1, 128($sp) 
+lw $v0, 40($v1) 
+sw $v0, 112($sp) 
+add $v0, $0, 1 
+sw $v0, 236($sp) 
+lw $v0, 108($sp) 
+add $a0, $v0, 0 
+lw $v0, 236($sp) 
+add $a1, $v0, 0 
+lw $v0, 112($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 56($sp) 
+lw $v0, 92($sp) 
+add $v0, $v0, 0 
+sw $v0, 116($sp) 
+lw $v0, 104($sp) 
+lw $v1, 116($sp) 
+lw $v0, 0($v1) 
+sw $v0, 104($sp) 
+lw $v0, 100($sp) 
+lw $v1, 104($sp) 
+lw $v0, 4($v1) 
+sw $v0, 100($sp) 
+lw $v0, 116($sp) 
+add $a0, $v0, 0 
+lw $v0, 88($sp) 
+add $a1, $v0, 0 
+lw $v0, 100($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 52($sp) 
+L17: 
+sll $0, $0, 0 
+L15: 
+sll $0, $0, 0 
+j L10 
+L11: 
+sll $0, $0, 0 
+add $v0, $0, 1 
+sw $v0, 48($sp) 
+lw $v0, 48($sp) 
+add $v0, $v0, 0 
+lw $ra, 4($sp) 
+add $sp, $sp, 316 
+jr $ra 
+Tree_Delete: 
+add $sp, $sp, -208 
+sw $ra, 4($sp) 
+sw $a0, 52($sp) 
+sw $a1, 56($sp) 
+lw $v0, 52($sp) 
+add $v0, $v0, 0 
+sw $v0, 76($sp) 
+lw $v0, 52($sp) 
+add $v0, $v0, 0 
+sw $v0, 80($sp) 
+add $v0, $0, 1 
+sw $v0, 64($sp) 
+add $v0, $0, 0 
+sw $v0, 68($sp) 
+add $v0, $0, 1 
+sw $v0, 72($sp) 
+L18: 
+sll $0, $0, 0 
+lw $v0, 64($sp) 
+bne $v0, 1, L19 
+lw $v0, 76($sp) 
+add $v0, $v0, 0 
+sw $v0, 48($sp) 
+lw $v0, 44($sp) 
+lw $v1, 48($sp) 
+lw $v0, 0($v1) 
+sw $v0, 44($sp) 
+lw $v0, 40($sp) 
+lw $v1, 44($sp) 
+lw $v0, 20($v1) 
+sw $v0, 40($sp) 
+lw $v0, 48($sp) 
+add $a0, $v0, 0 
+lw $v0, 40($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 8($sp) 
+lw $v0, 8($sp) 
+add $v0, $v0, 0 
+sw $v0, 60($sp) 
+lw $v0, 56($sp) 
+lw $v1, 60($sp) 
+slt $v0, $v0, $v1 
+sw $v0, 24($sp) 
+lw $v0, 24($sp) 
+bne $v0, 1, L20 
+lw $v0, 76($sp) 
+add $v0, $v0, 0 
+sw $v0, 188($sp) 
+lw $v0, 36($sp) 
+lw $v1, 188($sp) 
+lw $v0, 0($v1) 
+sw $v0, 36($sp) 
+lw $v0, 32($sp) 
+lw $v1, 36($sp) 
+lw $v0, 32($v1) 
+sw $v0, 32($sp) 
+lw $v0, 188($sp) 
+add $a0, $v0, 0 
+lw $v0, 32($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 20($sp) 
+lw $v0, 20($sp) 
+bne $v0, 1, L21 
+lw $v0, 76($sp) 
+add $v0, $v0, 0 
+sw $v0, 80($sp) 
+lw $v0, 76($sp) 
+add $v0, $v0, 0 
+sw $v0, 176($sp) 
+lw $v0, 184($sp) 
+lw $v1, 176($sp) 
+lw $v0, 0($v1) 
+sw $v0, 184($sp) 
+lw $v0, 180($sp) 
+lw $v1, 184($sp) 
+lw $v0, 16($v1) 
+sw $v0, 180($sp) 
+lw $v0, 176($sp) 
+add $a0, $v0, 0 
+lw $v0, 180($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 16($sp) 
+lw $v0, 16($sp) 
+add $v0, $v0, 0 
+sw $v0, 76($sp) 
+j L22 
+L21: 
+sll $0, $0, 0 
+add $v0, $0, 0 
+sw $v0, 64($sp) 
+L22: 
+sll $0, $0, 0 
+j L23 
+L20: 
+sll $0, $0, 0 
+lw $v0, 60($sp) 
+lw $v1, 56($sp) 
+slt $v0, $v0, $v1 
+sw $v0, 12($sp) 
+lw $v0, 12($sp) 
+bne $v0, 1, L24 
+lw $v0, 76($sp) 
+add $v0, $v0, 0 
+sw $v0, 196($sp) 
+lw $v0, 204($sp) 
+lw $v1, 196($sp) 
+lw $v0, 0($v1) 
+sw $v0, 204($sp) 
+lw $v0, 200($sp) 
+lw $v1, 204($sp) 
+lw $v0, 28($v1) 
+sw $v0, 200($sp) 
+lw $v0, 196($sp) 
+add $a0, $v0, 0 
+lw $v0, 200($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 28($sp) 
+lw $v0, 28($sp) 
+bne $v0, 1, L25 
+lw $v0, 76($sp) 
+add $v0, $v0, 0 
+sw $v0, 80($sp) 
+lw $v0, 76($sp) 
+add $v0, $v0, 0 
+sw $v0, 168($sp) 
+lw $v0, 192($sp) 
+lw $v1, 168($sp) 
+lw $v0, 0($v1) 
+sw $v0, 192($sp) 
+lw $v0, 172($sp) 
+lw $v1, 192($sp) 
+lw $v0, 12($v1) 
+sw $v0, 172($sp) 
+lw $v0, 168($sp) 
+add $a0, $v0, 0 
+lw $v0, 172($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 144($sp) 
+lw $v0, 144($sp) 
+add $v0, $v0, 0 
+sw $v0, 76($sp) 
+j L26 
+L25: 
+sll $0, $0, 0 
+add $v0, $0, 0 
+sw $v0, 64($sp) 
+L26: 
+sll $0, $0, 0 
+j L27 
+L24: 
+sll $0, $0, 0 
+lw $v0, 72($sp) 
+bne $v0, 1, L28 
+add $v0, $0, 0 
+sw $v0, 128($sp) 
+add $v0, $0, 1 
+sw $v0, 140($sp) 
+lw $v0, 76($sp) 
+add $v0, $v0, 0 
+sw $v0, 116($sp) 
+lw $v0, 164($sp) 
+lw $v1, 116($sp) 
+lw $v0, 0($v1) 
+sw $v0, 164($sp) 
+lw $v0, 120($sp) 
+lw $v1, 164($sp) 
+lw $v0, 28($v1) 
+sw $v0, 120($sp) 
+lw $v0, 116($sp) 
+add $a0, $v0, 0 
+lw $v0, 120($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 136($sp) 
+lw $v0, 140($sp) 
+lw $v1, 136($sp) 
+sub $v0, $v0, $v1 
+sw $v0, 160($sp) 
+lw $v0, 160($sp) 
+bne $v0, 1, L29 
+add $v0, $0, 1 
+sw $v0, 156($sp) 
+lw $v0, 76($sp) 
+add $v0, $v0, 0 
+sw $v0, 132($sp) 
+lw $v0, 112($sp) 
+lw $v1, 132($sp) 
+lw $v0, 0($v1) 
+sw $v0, 112($sp) 
+lw $v0, 108($sp) 
+lw $v1, 112($sp) 
+lw $v0, 32($v1) 
+sw $v0, 108($sp) 
+lw $v0, 132($sp) 
+add $a0, $v0, 0 
+lw $v0, 108($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 152($sp) 
+lw $v0, 156($sp) 
+lw $v1, 152($sp) 
+sub $v0, $v0, $v1 
+sw $v0, 148($sp) 
+lw $v0, 148($sp) 
+bne $v0, 1, L29 
+add $v0, $0, 1 
+sw $v0, 128($sp) 
+L29: 
+sll $0, $0, 0 
+lw $v0, 128($sp) 
+bne $v0, 1, L30 
+j L31 
+L30: 
+sll $0, $0, 0 
+lw $v0, 52($sp) 
+add $v0, $v0, 0 
+sw $v0, 100($sp) 
+lw $v0, 124($sp) 
+lw $v1, 100($sp) 
+lw $v0, 0($v1) 
+sw $v0, 124($sp) 
+lw $v0, 104($sp) 
+lw $v1, 124($sp) 
+lw $v0, 56($v1) 
+sw $v0, 104($sp) 
+lw $v0, 100($sp) 
+add $a0, $v0, 0 
+lw $v0, 80($sp) 
+add $a1, $v0, 0 
+lw $v0, 76($sp) 
+add $a2, $v0, 0 
+lw $v0, 104($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 88($sp) 
+L31: 
+sll $0, $0, 0 
+j L32 
+L28: 
+sll $0, $0, 0 
+lw $v0, 52($sp) 
+add $v0, $v0, 0 
+sw $v0, 208($sp) 
+lw $v0, 96($sp) 
+lw $v1, 208($sp) 
+lw $v0, 0($v1) 
+sw $v0, 96($sp) 
+lw $v0, 92($sp) 
+lw $v1, 96($sp) 
+lw $v0, 56($v1) 
+sw $v0, 92($sp) 
+lw $v0, 208($sp) 
+add $a0, $v0, 0 
+lw $v0, 80($sp) 
+add $a1, $v0, 0 
+lw $v0, 76($sp) 
+add $a2, $v0, 0 
+lw $v0, 92($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 84($sp) 
+L32: 
+sll $0, $0, 0 
+add $v0, $0, 1 
+sw $v0, 68($sp) 
+add $v0, $0, 0 
+sw $v0, 64($sp) 
+L27: 
+sll $0, $0, 0 
+L23: 
+sll $0, $0, 0 
+add $v0, $0, 0 
+sw $v0, 72($sp) 
+j L18 
+L19: 
+sll $0, $0, 0 
+lw $v0, 68($sp) 
+add $v0, $v0, 0 
+lw $ra, 4($sp) 
+add $sp, $sp, 208 
+jr $ra 
+Tree_Remove: 
+add $sp, $sp, -236 
+sw $ra, 4($sp) 
+sw $a0, 36($sp) 
+sw $a1, 48($sp) 
+sw $a2, 56($sp) 
+lw $v0, 56($sp) 
+add $v0, $v0, 0 
+sw $v0, 176($sp) 
+lw $v0, 184($sp) 
+lw $v1, 176($sp) 
+lw $v0, 0($v1) 
+sw $v0, 184($sp) 
+lw $v0, 180($sp) 
+lw $v1, 184($sp) 
+lw $v0, 32($v1) 
+sw $v0, 180($sp) 
+lw $v0, 176($sp) 
+add $a0, $v0, 0 
+lw $v0, 180($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 68($sp) 
+lw $v0, 68($sp) 
+bne $v0, 1, L33 
+lw $v0, 36($sp) 
+add $v0, $v0, 0 
+sw $v0, 16($sp) 
+lw $v0, 204($sp) 
+lw $v1, 16($sp) 
+lw $v0, 0($v1) 
+sw $v0, 204($sp) 
+lw $v0, 200($sp) 
+lw $v1, 204($sp) 
+lw $v0, 64($v1) 
+sw $v0, 200($sp) 
+lw $v0, 16($sp) 
+add $a0, $v0, 0 
+lw $v0, 48($sp) 
+add $a1, $v0, 0 
+lw $v0, 56($sp) 
+add $a2, $v0, 0 
+lw $v0, 200($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 220($sp) 
+j L34 
+L33: 
+sll $0, $0, 0 
+lw $v0, 56($sp) 
+add $v0, $v0, 0 
+sw $v0, 28($sp) 
+lw $v0, 12($sp) 
+lw $v1, 28($sp) 
+lw $v0, 0($v1) 
+sw $v0, 12($sp) 
+lw $v0, 32($sp) 
+lw $v1, 12($sp) 
+lw $v0, 28($v1) 
+sw $v0, 32($sp) 
+lw $v0, 28($sp) 
+add $a0, $v0, 0 
+lw $v0, 32($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 216($sp) 
+lw $v0, 216($sp) 
+bne $v0, 1, L35 
+lw $v0, 36($sp) 
+add $v0, $v0, 0 
+sw $v0, 60($sp) 
+lw $v0, 24($sp) 
+lw $v1, 60($sp) 
+lw $v0, 0($v1) 
+sw $v0, 24($sp) 
+lw $v0, 20($sp) 
+lw $v1, 24($sp) 
+lw $v0, 60($v1) 
+sw $v0, 20($sp) 
+lw $v0, 60($sp) 
+add $a0, $v0, 0 
+lw $v0, 48($sp) 
+add $a1, $v0, 0 
+lw $v0, 56($sp) 
+add $a2, $v0, 0 
+lw $v0, 20($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 212($sp) 
+j L36 
+L35: 
+sll $0, $0, 0 
+lw $v0, 56($sp) 
+add $v0, $v0, 0 
+sw $v0, 40($sp) 
+lw $v0, 52($sp) 
+lw $v1, 40($sp) 
+lw $v0, 0($v1) 
+sw $v0, 52($sp) 
+lw $v0, 44($sp) 
+lw $v1, 52($sp) 
+lw $v0, 20($v1) 
+sw $v0, 44($sp) 
+lw $v0, 40($sp) 
+add $a0, $v0, 0 
+lw $v0, 44($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 208($sp) 
+lw $v0, 208($sp) 
+add $v0, $v0, 0 
+sw $v0, 64($sp) 
+lw $v0, 48($sp) 
+add $v0, $v0, 0 
+sw $v0, 124($sp) 
+lw $v0, 132($sp) 
+lw $v1, 124($sp) 
+lw $v0, 0($v1) 
+sw $v0, 132($sp) 
+lw $v0, 128($sp) 
+lw $v1, 132($sp) 
+lw $v0, 16($v1) 
+sw $v0, 128($sp) 
+lw $v0, 124($sp) 
+add $a0, $v0, 0 
+lw $v0, 128($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 236($sp) 
+lw $v0, 236($sp) 
+add $v0, $v0, 0 
+sw $v0, 108($sp) 
+lw $v0, 116($sp) 
+lw $v1, 108($sp) 
+lw $v0, 0($v1) 
+sw $v0, 116($sp) 
+lw $v0, 112($sp) 
+lw $v1, 116($sp) 
+lw $v0, 20($v1) 
+sw $v0, 112($sp) 
+lw $v0, 108($sp) 
+add $a0, $v0, 0 
+lw $v0, 112($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 232($sp) 
+lw $v0, 232($sp) 
+add $v0, $v0, 0 
+sw $v0, 8($sp) 
+lw $v0, 36($sp) 
+add $v0, $v0, 0 
+sw $v0, 140($sp) 
+lw $v0, 120($sp) 
+lw $v1, 140($sp) 
+lw $v0, 0($v1) 
+sw $v0, 120($sp) 
+lw $v0, 144($sp) 
+lw $v1, 120($sp) 
+lw $v0, 44($v1) 
+sw $v0, 144($sp) 
+lw $v0, 140($sp) 
+add $a0, $v0, 0 
+lw $v0, 64($sp) 
+add $a1, $v0, 0 
+lw $v0, 8($sp) 
+add $a2, $v0, 0 
+lw $v0, 144($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 228($sp) 
+lw $v0, 228($sp) 
+bne $v0, 1, L37 
+lw $v0, 48($sp) 
+add $v0, $v0, 0 
+sw $v0, 76($sp) 
+lw $v0, 136($sp) 
+lw $v1, 76($sp) 
+lw $v0, 0($v1) 
+sw $v0, 136($sp) 
+lw $v0, 80($sp) 
+lw $v1, 136($sp) 
+lw $v0, 8($v1) 
+sw $v0, 80($sp) 
+lw $v0, 72($sp) 
+lw $v1, 36($sp) 
+lw $v0, 24($v1) 
+sw $v0, 72($sp) 
+lw $v0, 76($sp) 
+add $a0, $v0, 0 
+lw $v0, 72($sp) 
+add $a1, $v0, 0 
+lw $v0, 80($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 224($sp) 
+lw $v0, 48($sp) 
+add $v0, $v0, 0 
+sw $v0, 88($sp) 
+lw $v0, 96($sp) 
+lw $v1, 88($sp) 
+lw $v0, 0($v1) 
+sw $v0, 96($sp) 
+lw $v0, 92($sp) 
+lw $v1, 96($sp) 
+lw $v0, 36($v1) 
+sw $v0, 92($sp) 
+add $v0, $0, 0 
+sw $v0, 168($sp) 
+lw $v0, 88($sp) 
+add $a0, $v0, 0 
+lw $v0, 168($sp) 
+add $a1, $v0, 0 
+lw $v0, 92($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 164($sp) 
+j L38 
+L37: 
+sll $0, $0, 0 
+lw $v0, 48($sp) 
+add $v0, $v0, 0 
+sw $v0, 100($sp) 
+lw $v0, 84($sp) 
+lw $v1, 100($sp) 
+lw $v0, 0($v1) 
+sw $v0, 84($sp) 
+lw $v0, 104($sp) 
+lw $v1, 84($sp) 
+lw $v0, 4($v1) 
+sw $v0, 104($sp) 
+lw $v0, 172($sp) 
+lw $v1, 36($sp) 
+lw $v0, 24($v1) 
+sw $v0, 172($sp) 
+lw $v0, 100($sp) 
+add $a0, $v0, 0 
+lw $v0, 172($sp) 
+add $a1, $v0, 0 
+lw $v0, 104($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 148($sp) 
+lw $v0, 48($sp) 
+add $v0, $v0, 0 
+sw $v0, 188($sp) 
+lw $v0, 196($sp) 
+lw $v1, 188($sp) 
+lw $v0, 0($v1) 
+sw $v0, 196($sp) 
+lw $v0, 192($sp) 
+lw $v1, 196($sp) 
+lw $v0, 40($v1) 
+sw $v0, 192($sp) 
+add $v0, $0, 0 
+sw $v0, 160($sp) 
+lw $v0, 188($sp) 
+add $a0, $v0, 0 
+lw $v0, 160($sp) 
+add $a1, $v0, 0 
+lw $v0, 192($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 156($sp) 
+L38: 
+sll $0, $0, 0 
+L36: 
+sll $0, $0, 0 
+L34: 
+sll $0, $0, 0 
+add $v0, $0, 1 
+sw $v0, 152($sp) 
+lw $v0, 152($sp) 
+add $v0, $v0, 0 
+lw $ra, 4($sp) 
+add $sp, $sp, 236 
+jr $ra 
+Tree_RemoveRight: 
+add $sp, $sp, -140 
+sw $ra, 4($sp) 
+sw $a0, 104($sp) 
+sw $a1, 112($sp) 
+sw $a2, 120($sp) 
+L39: 
+sll $0, $0, 0 
+lw $v0, 120($sp) 
+add $v0, $v0, 0 
+sw $v0, 128($sp) 
+lw $v0, 136($sp) 
+lw $v1, 128($sp) 
+lw $v0, 0($v1) 
+sw $v0, 136($sp) 
+lw $v0, 132($sp) 
+lw $v1, 136($sp) 
+lw $v0, 28($v1) 
+sw $v0, 132($sp) 
+lw $v0, 128($sp) 
+add $a0, $v0, 0 
+lw $v0, 132($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 84($sp) 
+lw $v0, 84($sp) 
+bne $v0, 1, L40 
+lw $v0, 120($sp) 
+add $v0, $v0, 0 
+sw $v0, 56($sp) 
+lw $v0, 140($sp) 
+lw $v1, 56($sp) 
+lw $v0, 0($v1) 
+sw $v0, 140($sp) 
+lw $v0, 60($sp) 
+lw $v1, 140($sp) 
+lw $v0, 24($v1) 
+sw $v0, 60($sp) 
+lw $v0, 120($sp) 
+add $v0, $v0, 0 
+sw $v0, 92($sp) 
+lw $v0, 64($sp) 
+lw $v1, 92($sp) 
+lw $v0, 0($v1) 
+sw $v0, 64($sp) 
+lw $v0, 96($sp) 
+lw $v1, 64($sp) 
+lw $v0, 12($v1) 
+sw $v0, 96($sp) 
+lw $v0, 92($sp) 
+add $a0, $v0, 0 
+lw $v0, 96($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 124($sp) 
+lw $v0, 124($sp) 
+add $v0, $v0, 0 
+sw $v0, 68($sp) 
+lw $v0, 76($sp) 
+lw $v1, 68($sp) 
+lw $v0, 0($v1) 
+sw $v0, 76($sp) 
+lw $v0, 72($sp) 
+lw $v1, 76($sp) 
+lw $v0, 20($v1) 
+sw $v0, 72($sp) 
+lw $v0, 68($sp) 
+add $a0, $v0, 0 
+lw $v0, 72($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 116($sp) 
+lw $v0, 56($sp) 
+add $a0, $v0, 0 
+lw $v0, 116($sp) 
+add $a1, $v0, 0 
+lw $v0, 60($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 108($sp) 
+lw $v0, 120($sp) 
+add $v0, $v0, 0 
+sw $v0, 112($sp) 
+lw $v0, 120($sp) 
+add $v0, $v0, 0 
+sw $v0, 16($sp) 
+lw $v0, 88($sp) 
+lw $v1, 16($sp) 
+lw $v0, 0($v1) 
+sw $v0, 88($sp) 
+lw $v0, 80($sp) 
+lw $v1, 88($sp) 
+lw $v0, 12($v1) 
+sw $v0, 80($sp) 
+lw $v0, 16($sp) 
+add $a0, $v0, 0 
+lw $v0, 80($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 100($sp) 
+lw $v0, 100($sp) 
+add $v0, $v0, 0 
+sw $v0, 120($sp) 
+j L39 
+L40: 
+sll $0, $0, 0 
+lw $v0, 112($sp) 
+add $v0, $v0, 0 
+sw $v0, 36($sp) 
+lw $v0, 12($sp) 
+lw $v1, 36($sp) 
+lw $v0, 0($v1) 
+sw $v0, 12($sp) 
+lw $v0, 8($sp) 
+lw $v1, 12($sp) 
+lw $v0, 4($v1) 
+sw $v0, 8($sp) 
+lw $v0, 32($sp) 
+lw $v1, 104($sp) 
+lw $v0, 24($v1) 
+sw $v0, 32($sp) 
+lw $v0, 36($sp) 
+add $a0, $v0, 0 
+lw $v0, 32($sp) 
+add $a1, $v0, 0 
+lw $v0, 8($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 52($sp) 
+lw $v0, 112($sp) 
+add $v0, $v0, 0 
+sw $v0, 40($sp) 
+lw $v0, 20($sp) 
+lw $v1, 40($sp) 
+lw $v0, 0($v1) 
+sw $v0, 20($sp) 
+lw $v0, 48($sp) 
+lw $v1, 20($sp) 
+lw $v0, 40($v1) 
+sw $v0, 48($sp) 
+add $v0, $0, 0 
+sw $v0, 28($sp) 
+lw $v0, 40($sp) 
+add $a0, $v0, 0 
+lw $v0, 28($sp) 
+add $a1, $v0, 0 
+lw $v0, 48($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 24($sp) 
+add $v0, $0, 1 
+sw $v0, 44($sp) 
+lw $v0, 44($sp) 
+add $v0, $v0, 0 
+lw $ra, 4($sp) 
+add $sp, $sp, 140 
+jr $ra 
+Tree_RemoveLeft: 
+add $sp, $sp, -140 
+sw $ra, 4($sp) 
+sw $a0, 92($sp) 
+sw $a1, 96($sp) 
+sw $a2, 100($sp) 
+L41: 
+sll $0, $0, 0 
+lw $v0, 100($sp) 
+add $v0, $v0, 0 
+sw $v0, 16($sp) 
+lw $v0, 24($sp) 
+lw $v1, 16($sp) 
+lw $v0, 0($v1) 
+sw $v0, 24($sp) 
+lw $v0, 20($sp) 
+lw $v1, 24($sp) 
+lw $v0, 32($v1) 
+sw $v0, 20($sp) 
+lw $v0, 16($sp) 
+add $a0, $v0, 0 
+lw $v0, 20($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 68($sp) 
+lw $v0, 68($sp) 
+bne $v0, 1, L42 
+lw $v0, 100($sp) 
+add $v0, $v0, 0 
+sw $v0, 40($sp) 
+lw $v0, 12($sp) 
+lw $v1, 40($sp) 
+lw $v0, 0($v1) 
+sw $v0, 12($sp) 
+lw $v0, 48($sp) 
+lw $v1, 12($sp) 
+lw $v0, 24($v1) 
+sw $v0, 48($sp) 
+lw $v0, 100($sp) 
+add $v0, $v0, 0 
+sw $v0, 124($sp) 
+lw $v0, 52($sp) 
+lw $v1, 124($sp) 
+lw $v0, 0($v1) 
+sw $v0, 52($sp) 
+lw $v0, 8($sp) 
+lw $v1, 52($sp) 
+lw $v0, 16($v1) 
+sw $v0, 8($sp) 
+lw $v0, 124($sp) 
+add $a0, $v0, 0 
+lw $v0, 8($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 64($sp) 
+lw $v0, 64($sp) 
+add $v0, $v0, 0 
+sw $v0, 56($sp) 
+lw $v0, 36($sp) 
+lw $v1, 56($sp) 
+lw $v0, 0($v1) 
+sw $v0, 36($sp) 
+lw $v0, 28($sp) 
+lw $v1, 36($sp) 
+lw $v0, 20($v1) 
+sw $v0, 28($sp) 
+lw $v0, 56($sp) 
+add $a0, $v0, 0 
+lw $v0, 28($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 60($sp) 
+lw $v0, 40($sp) 
+add $a0, $v0, 0 
+lw $v0, 60($sp) 
+add $a1, $v0, 0 
+lw $v0, 48($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 84($sp) 
+lw $v0, 100($sp) 
+add $v0, $v0, 0 
+sw $v0, 96($sp) 
+lw $v0, 100($sp) 
+add $v0, $v0, 0 
+sw $v0, 112($sp) 
+lw $v0, 120($sp) 
+lw $v1, 112($sp) 
+lw $v0, 0($v1) 
+sw $v0, 120($sp) 
+lw $v0, 116($sp) 
+lw $v1, 120($sp) 
+lw $v0, 16($v1) 
+sw $v0, 116($sp) 
+lw $v0, 112($sp) 
+add $a0, $v0, 0 
+lw $v0, 116($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 80($sp) 
+lw $v0, 80($sp) 
+add $v0, $v0, 0 
+sw $v0, 100($sp) 
+j L41 
+L42: 
+sll $0, $0, 0 
+lw $v0, 96($sp) 
+add $v0, $v0, 0 
+sw $v0, 132($sp) 
+lw $v0, 140($sp) 
+lw $v1, 132($sp) 
+lw $v0, 0($v1) 
+sw $v0, 140($sp) 
+lw $v0, 136($sp) 
+lw $v1, 140($sp) 
+lw $v0, 8($v1) 
+sw $v0, 136($sp) 
+lw $v0, 128($sp) 
+lw $v1, 92($sp) 
+lw $v0, 24($v1) 
+sw $v0, 128($sp) 
+lw $v0, 132($sp) 
+add $a0, $v0, 0 
+lw $v0, 128($sp) 
+add $a1, $v0, 0 
+lw $v0, 136($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 76($sp) 
+lw $v0, 96($sp) 
+add $v0, $v0, 0 
+sw $v0, 88($sp) 
+lw $v0, 108($sp) 
+lw $v1, 88($sp) 
+lw $v0, 0($v1) 
+sw $v0, 108($sp) 
+lw $v0, 104($sp) 
+lw $v1, 108($sp) 
+lw $v0, 36($v1) 
+sw $v0, 104($sp) 
+add $v0, $0, 0 
+sw $v0, 72($sp) 
+lw $v0, 88($sp) 
+add $a0, $v0, 0 
+lw $v0, 72($sp) 
+add $a1, $v0, 0 
+lw $v0, 104($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 44($sp) 
+add $v0, $0, 1 
+sw $v0, 32($sp) 
+lw $v0, 32($sp) 
+add $v0, $v0, 0 
+lw $ra, 4($sp) 
+add $sp, $sp, 140 
+jr $ra 
+Tree_Search: 
+add $sp, $sp, -116 
+sw $ra, 4($sp) 
+sw $a0, 112($sp) 
+sw $a1, 116($sp) 
+lw $v0, 112($sp) 
+add $v0, $v0, 0 
+sw $v0, 44($sp) 
+add $v0, $0, 1 
+sw $v0, 20($sp) 
+add $v0, $0, 0 
+sw $v0, 16($sp) 
+L43: 
+sll $0, $0, 0 
+lw $v0, 20($sp) 
+bne $v0, 1, L44 
+lw $v0, 44($sp) 
+add $v0, $v0, 0 
+sw $v0, 108($sp) 
+lw $v0, 92($sp) 
+lw $v1, 108($sp) 
+lw $v0, 0($v1) 
+sw $v0, 92($sp) 
+lw $v0, 88($sp) 
+lw $v1, 92($sp) 
+lw $v0, 20($v1) 
+sw $v0, 88($sp) 
+lw $v0, 108($sp) 
+add $a0, $v0, 0 
+lw $v0, 88($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 8($sp) 
+lw $v0, 8($sp) 
+add $v0, $v0, 0 
+sw $v0, 28($sp) 
+lw $v0, 116($sp) 
+lw $v1, 28($sp) 
+slt $v0, $v0, $v1 
+sw $v0, 36($sp) 
+lw $v0, 36($sp) 
+bne $v0, 1, L45 
+lw $v0, 44($sp) 
+add $v0, $v0, 0 
+sw $v0, 96($sp) 
+lw $v0, 104($sp) 
+lw $v1, 96($sp) 
+lw $v0, 0($v1) 
+sw $v0, 104($sp) 
+lw $v0, 100($sp) 
+lw $v1, 104($sp) 
+lw $v0, 32($v1) 
+sw $v0, 100($sp) 
+lw $v0, 96($sp) 
+add $a0, $v0, 0 
+lw $v0, 100($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 32($sp) 
+lw $v0, 32($sp) 
+bne $v0, 1, L46 
+lw $v0, 44($sp) 
+add $v0, $v0, 0 
+sw $v0, 76($sp) 
+lw $v0, 84($sp) 
+lw $v1, 76($sp) 
+lw $v0, 0($v1) 
+sw $v0, 84($sp) 
+lw $v0, 80($sp) 
+lw $v1, 84($sp) 
+lw $v0, 16($v1) 
+sw $v0, 80($sp) 
+lw $v0, 76($sp) 
+add $a0, $v0, 0 
+lw $v0, 80($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 24($sp) 
+lw $v0, 24($sp) 
+add $v0, $v0, 0 
+sw $v0, 44($sp) 
+j L47 
+L46: 
+sll $0, $0, 0 
+add $v0, $0, 0 
+sw $v0, 20($sp) 
+L47: 
+sll $0, $0, 0 
+j L48 
+L45: 
+sll $0, $0, 0 
+lw $v0, 28($sp) 
+lw $v1, 116($sp) 
+slt $v0, $v0, $v1 
+sw $v0, 12($sp) 
+lw $v0, 12($sp) 
+bne $v0, 1, L49 
+lw $v0, 44($sp) 
+add $v0, $v0, 0 
+sw $v0, 56($sp) 
+lw $v0, 64($sp) 
+lw $v1, 56($sp) 
+lw $v0, 0($v1) 
+sw $v0, 64($sp) 
+lw $v0, 60($sp) 
+lw $v1, 64($sp) 
+lw $v0, 28($v1) 
+sw $v0, 60($sp) 
+lw $v0, 56($sp) 
+add $a0, $v0, 0 
+lw $v0, 60($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 48($sp) 
+lw $v0, 48($sp) 
+bne $v0, 1, L50 
+lw $v0, 44($sp) 
+add $v0, $v0, 0 
+sw $v0, 68($sp) 
+lw $v0, 52($sp) 
+lw $v1, 68($sp) 
+lw $v0, 0($v1) 
+sw $v0, 52($sp) 
+lw $v0, 72($sp) 
+lw $v1, 52($sp) 
+lw $v0, 12($v1) 
+sw $v0, 72($sp) 
+lw $v0, 68($sp) 
+add $a0, $v0, 0 
+lw $v0, 72($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 40($sp) 
+lw $v0, 40($sp) 
+add $v0, $v0, 0 
+sw $v0, 44($sp) 
+j L51 
+L50: 
+sll $0, $0, 0 
+add $v0, $0, 0 
+sw $v0, 20($sp) 
+L51: 
+sll $0, $0, 0 
+j L52 
+L49: 
+sll $0, $0, 0 
+add $v0, $0, 1 
+sw $v0, 16($sp) 
+add $v0, $0, 0 
+sw $v0, 20($sp) 
+L52: 
+sll $0, $0, 0 
+L48: 
+sll $0, $0, 0 
+j L43 
+L44: 
+sll $0, $0, 0 
+lw $v0, 16($sp) 
+add $v0, $v0, 0 
+lw $ra, 4($sp) 
+add $sp, $sp, 116 
+jr $ra 
+Tree_Print: 
+add $sp, $sp, -32 
+sw $ra, 4($sp) 
+sw $a0, 28($sp) 
+lw $v0, 28($sp) 
+add $v0, $v0, 0 
+sw $v0, 8($sp) 
+lw $v0, 28($sp) 
+add $v0, $v0, 0 
+sw $v0, 24($sp) 
+lw $v0, 16($sp) 
+lw $v1, 24($sp) 
+lw $v0, 0($v1) 
+sw $v0, 16($sp) 
+lw $v0, 12($sp) 
+lw $v1, 16($sp) 
+lw $v0, 76($v1) 
+sw $v0, 12($sp) 
+lw $v0, 24($sp) 
+add $a0, $v0, 0 
+lw $v0, 8($sp) 
+add $a1, $v0, 0 
+lw $v0, 12($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 32($sp) 
+add $v0, $0, 1 
+sw $v0, 20($sp) 
+lw $v0, 20($sp) 
+add $v0, $v0, 0 
+lw $ra, 4($sp) 
+add $sp, $sp, 32 
+jr $ra 
+Tree_RecPrint: 
+add $sp, $sp, -128 
+sw $ra, 4($sp) 
+sw $a0, 52($sp) 
+sw $a1, 56($sp) 
+lw $v0, 56($sp) 
+add $v0, $v0, 0 
+sw $v0, 12($sp) 
+lw $v0, 20($sp) 
+lw $v1, 12($sp) 
+lw $v0, 0($v1) 
+sw $v0, 20($sp) 
+lw $v0, 16($sp) 
+lw $v1, 20($sp) 
+lw $v0, 32($v1) 
+sw $v0, 16($sp) 
+lw $v0, 12($sp) 
+add $a0, $v0, 0 
+lw $v0, 16($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 76($sp) 
+lw $v0, 76($sp) 
+bne $v0, 1, L53 
+lw $v0, 52($sp) 
+add $v0, $v0, 0 
+sw $v0, 28($sp) 
+lw $v0, 36($sp) 
+lw $v1, 28($sp) 
+lw $v0, 0($v1) 
+sw $v0, 36($sp) 
+lw $v0, 32($sp) 
+lw $v1, 36($sp) 
+lw $v0, 76($v1) 
+sw $v0, 32($sp) 
+lw $v0, 56($sp) 
+add $v0, $v0, 0 
+sw $v0, 68($sp) 
+lw $v0, 24($sp) 
+lw $v1, 68($sp) 
+lw $v0, 0($v1) 
+sw $v0, 24($sp) 
+lw $v0, 8($sp) 
+lw $v1, 24($sp) 
+lw $v0, 16($v1) 
+sw $v0, 8($sp) 
+lw $v0, 68($sp) 
+add $a0, $v0, 0 
+lw $v0, 8($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 72($sp) 
+lw $v0, 28($sp) 
+add $a0, $v0, 0 
+lw $v0, 72($sp) 
+add $a1, $v0, 0 
+lw $v0, 32($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 64($sp) 
+j L54 
+L53: 
+sll $0, $0, 0 
+L54: 
+sll $0, $0, 0 
+lw $v0, 56($sp) 
+add $v0, $v0, 0 
+sw $v0, 96($sp) 
+lw $v0, 60($sp) 
+lw $v1, 96($sp) 
+lw $v0, 0($v1) 
+sw $v0, 60($sp) 
+lw $v0, 104($sp) 
+lw $v1, 60($sp) 
+lw $v0, 20($v1) 
+sw $v0, 104($sp) 
+lw $v0, 96($sp) 
+add $a0, $v0, 0 
+lw $v0, 104($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 108($sp) 
+lw $v0, 108($sp) 
+add $a0, $0, $v0 
+jal .print 
+lw $v0, 56($sp) 
+add $v0, $v0, 0 
+sw $v0, 128($sp) 
+lw $v0, 88($sp) 
+lw $v1, 128($sp) 
+lw $v0, 0($v1) 
+sw $v0, 88($sp) 
+lw $v0, 80($sp) 
+lw $v1, 88($sp) 
+lw $v0, 28($v1) 
+sw $v0, 80($sp) 
+lw $v0, 128($sp) 
+add $a0, $v0, 0 
+lw $v0, 80($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 100($sp) 
+lw $v0, 100($sp) 
+bne $v0, 1, L55 
+lw $v0, 52($sp) 
+add $v0, $v0, 0 
+sw $v0, 112($sp) 
+lw $v0, 120($sp) 
+lw $v1, 112($sp) 
+lw $v0, 0($v1) 
+sw $v0, 120($sp) 
+lw $v0, 116($sp) 
+lw $v1, 120($sp) 
+lw $v0, 76($v1) 
+sw $v0, 116($sp) 
+lw $v0, 56($sp) 
+add $v0, $v0, 0 
+sw $v0, 40($sp) 
+lw $v0, 48($sp) 
+lw $v1, 40($sp) 
+lw $v0, 0($v1) 
+sw $v0, 48($sp) 
+lw $v0, 44($sp) 
+lw $v1, 48($sp) 
+lw $v0, 12($v1) 
+sw $v0, 44($sp) 
+lw $v0, 40($sp) 
+add $a0, $v0, 0 
+lw $v0, 44($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 92($sp) 
+lw $v0, 112($sp) 
+add $a0, $v0, 0 
+lw $v0, 92($sp) 
+add $a1, $v0, 0 
+lw $v0, 116($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 84($sp) 
+j L56 
+L55: 
+sll $0, $0, 0 
+L56: 
+sll $0, $0, 0 
+add $v0, $0, 1 
+sw $v0, 124($sp) 
+lw $v0, 124($sp) 
+add $v0, $v0, 0 
+lw $ra, 4($sp) 
+add $sp, $sp, 128 
+jr $ra 
+Tree_accept: 
+add $sp, $sp, -36 
+sw $ra, 4($sp) 
+sw $a0, 28($sp) 
+sw $a1, 32($sp) 
+add $v0, $0, 333 
+sw $v0, 36($sp) 
+lw $v0, 36($sp) 
+add $a0, $0, $v0 
+jal .print 
+lw $v0, 32($sp) 
+add $v0, $v0, 0 
+sw $v0, 16($sp) 
+lw $v0, 24($sp) 
+lw $v1, 16($sp) 
+lw $v0, 0($v1) 
+sw $v0, 24($sp) 
+lw $v0, 20($sp) 
+lw $v1, 24($sp) 
+lw $v0, 0($v1) 
+sw $v0, 20($sp) 
+lw $v0, 16($sp) 
+add $a0, $v0, 0 
+lw $v0, 28($sp) 
+add $a1, $v0, 0 
+lw $v0, 20($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 8($sp) 
+add $v0, $0, 0 
+sw $v0, 12($sp) 
+lw $v0, 12($sp) 
+add $v0, $v0, 0 
+lw $ra, 4($sp) 
+add $sp, $sp, 36 
+jr $ra 
+Visitor_visit: 
+add $sp, $sp, -120 
+sw $ra, 4($sp) 
+sw $a0, 104($sp) 
+sw $a1, 112($sp) 
+lw $v0, 112($sp) 
+add $v0, $v0, 0 
+sw $v0, 116($sp) 
+lw $v0, 88($sp) 
+lw $v1, 116($sp) 
+lw $v0, 0($v1) 
+sw $v0, 88($sp) 
+lw $v0, 120($sp) 
+lw $v1, 88($sp) 
+lw $v0, 28($v1) 
+sw $v0, 120($sp) 
+lw $v0, 116($sp) 
+add $a0, $v0, 0 
+lw $v0, 120($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 80($sp) 
+lw $v0, 80($sp) 
+bne $v0, 1, L57 
+lw $v0, 112($sp) 
+add $v0, $v0, 0 
+sw $v0, 44($sp) 
+lw $v0, 108($sp) 
+lw $v1, 44($sp) 
+lw $v0, 0($v1) 
+sw $v0, 108($sp) 
+lw $v0, 48($sp) 
+lw $v1, 108($sp) 
+lw $v0, 12($v1) 
+sw $v0, 48($sp) 
+lw $v0, 44($sp) 
+add $a0, $v0, 0 
+lw $v0, 48($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 76($sp) 
+lw $v0, 104($sp) 
+lw $v1, 76($sp) 
+sw $v1, 8($v0) 
+sw $v0, 104($sp) 
+lw $v0, 56($sp) 
+lw $v1, 104($sp) 
+lw $v0, 8($v1) 
+sw $v0, 56($sp) 
+lw $v0, 56($sp) 
+add $v0, $v0, 0 
+sw $v0, 60($sp) 
+lw $v0, 40($sp) 
+lw $v1, 60($sp) 
+lw $v0, 0($v1) 
+sw $v0, 40($sp) 
+lw $v0, 36($sp) 
+lw $v1, 40($sp) 
+lw $v0, 80($v1) 
+sw $v0, 36($sp) 
+lw $v0, 60($sp) 
+add $a0, $v0, 0 
+lw $v0, 104($sp) 
+add $a1, $v0, 0 
+lw $v0, 36($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 72($sp) 
+j L58 
+L57: 
+sll $0, $0, 0 
+L58: 
+sll $0, $0, 0 
+lw $v0, 112($sp) 
+add $v0, $v0, 0 
+sw $v0, 64($sp) 
+lw $v0, 52($sp) 
+lw $v1, 64($sp) 
+lw $v0, 0($v1) 
+sw $v0, 52($sp) 
+lw $v0, 68($sp) 
+lw $v1, 52($sp) 
+lw $v0, 32($v1) 
+sw $v0, 68($sp) 
+lw $v0, 64($sp) 
+add $a0, $v0, 0 
+lw $v0, 68($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 100($sp) 
+lw $v0, 100($sp) 
+bne $v0, 1, L59 
+lw $v0, 112($sp) 
+add $v0, $v0, 0 
+sw $v0, 20($sp) 
+lw $v0, 8($sp) 
+lw $v1, 20($sp) 
+lw $v0, 0($v1) 
+sw $v0, 8($sp) 
+lw $v0, 24($sp) 
+lw $v1, 8($sp) 
+lw $v0, 16($v1) 
+sw $v0, 24($sp) 
+lw $v0, 20($sp) 
+add $a0, $v0, 0 
+lw $v0, 24($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 96($sp) 
+lw $v0, 104($sp) 
+lw $v1, 96($sp) 
+sw $v1, 4($v0) 
+sw $v0, 104($sp) 
+lw $v0, 28($sp) 
+lw $v1, 104($sp) 
+lw $v0, 4($v1) 
+sw $v0, 28($sp) 
+lw $v0, 28($sp) 
+add $v0, $v0, 0 
+sw $v0, 32($sp) 
+lw $v0, 16($sp) 
+lw $v1, 32($sp) 
+lw $v0, 0($v1) 
+sw $v0, 16($sp) 
+lw $v0, 12($sp) 
+lw $v1, 16($sp) 
+lw $v0, 80($v1) 
+sw $v0, 12($sp) 
+lw $v0, 32($sp) 
+add $a0, $v0, 0 
+lw $v0, 104($sp) 
+add $a1, $v0, 0 
+lw $v0, 12($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 92($sp) 
+j L60 
+L59: 
+sll $0, $0, 0 
+L60: 
+sll $0, $0, 0 
+add $v0, $0, 0 
+sw $v0, 84($sp) 
+lw $v0, 84($sp) 
+add $v0, $v0, 0 
+lw $ra, 4($sp) 
+add $sp, $sp, 120 
+jr $ra 
+MyVisitor_visit: 
+add $sp, $sp, -136 
+sw $ra, 4($sp) 
+sw $a0, 92($sp) 
+sw $a1, 96($sp) 
+lw $v0, 96($sp) 
+add $v0, $v0, 0 
+sw $v0, 108($sp) 
+lw $v0, 8($sp) 
+lw $v1, 108($sp) 
+lw $v0, 0($v1) 
+sw $v0, 8($sp) 
+lw $v0, 12($sp) 
+lw $v1, 8($sp) 
+lw $v0, 28($v1) 
+sw $v0, 12($sp) 
+lw $v0, 108($sp) 
+add $a0, $v0, 0 
+lw $v0, 12($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 100($sp) 
+lw $v0, 100($sp) 
+bne $v0, 1, L61 
+lw $v0, 96($sp) 
+add $v0, $v0, 0 
+sw $v0, 120($sp) 
+lw $v0, 104($sp) 
+lw $v1, 120($sp) 
+lw $v0, 0($v1) 
+sw $v0, 104($sp) 
+lw $v0, 124($sp) 
+lw $v1, 104($sp) 
+lw $v0, 12($v1) 
+sw $v0, 124($sp) 
+lw $v0, 120($sp) 
+add $a0, $v0, 0 
+lw $v0, 124($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 20($sp) 
+lw $v0, 92($sp) 
+lw $v1, 20($sp) 
+sw $v1, 8($v0) 
+sw $v0, 92($sp) 
+lw $v0, 132($sp) 
+lw $v1, 92($sp) 
+lw $v0, 8($v1) 
+sw $v0, 132($sp) 
+lw $v0, 132($sp) 
+add $v0, $v0, 0 
+sw $v0, 136($sp) 
+lw $v0, 116($sp) 
+lw $v1, 136($sp) 
+lw $v0, 0($v1) 
+sw $v0, 116($sp) 
+lw $v0, 112($sp) 
+lw $v1, 116($sp) 
+lw $v0, 80($v1) 
+sw $v0, 112($sp) 
+lw $v0, 136($sp) 
+add $a0, $v0, 0 
+lw $v0, 92($sp) 
+add $a1, $v0, 0 
+lw $v0, 112($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 16($sp) 
+j L62 
+L61: 
+sll $0, $0, 0 
+L62: 
+sll $0, $0, 0 
+lw $v0, 96($sp) 
+add $v0, $v0, 0 
+sw $v0, 56($sp) 
+lw $v0, 128($sp) 
+lw $v1, 56($sp) 
+lw $v0, 0($v1) 
+sw $v0, 128($sp) 
+lw $v0, 60($sp) 
+lw $v1, 128($sp) 
+lw $v0, 20($v1) 
+sw $v0, 60($sp) 
+lw $v0, 56($sp) 
+add $a0, $v0, 0 
+lw $v0, 60($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 44($sp) 
+lw $v0, 44($sp) 
+add $a0, $0, $v0 
+jal .print 
+lw $v0, 96($sp) 
+add $v0, $v0, 0 
+sw $v0, 72($sp) 
+lw $v0, 52($sp) 
+lw $v1, 72($sp) 
+lw $v0, 0($v1) 
+sw $v0, 52($sp) 
+lw $v0, 76($sp) 
+lw $v1, 52($sp) 
+lw $v0, 32($v1) 
+sw $v0, 76($sp) 
+lw $v0, 72($sp) 
+add $a0, $v0, 0 
+lw $v0, 76($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 40($sp) 
+lw $v0, 40($sp) 
+bne $v0, 1, L63 
+lw $v0, 96($sp) 
+add $v0, $v0, 0 
+sw $v0, 88($sp) 
+lw $v0, 68($sp) 
+lw $v1, 88($sp) 
+lw $v0, 0($v1) 
+sw $v0, 68($sp) 
+lw $v0, 64($sp) 
+lw $v1, 68($sp) 
+lw $v0, 16($v1) 
+sw $v0, 64($sp) 
+lw $v0, 88($sp) 
+add $a0, $v0, 0 
+lw $v0, 64($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 36($sp) 
+lw $v0, 92($sp) 
+lw $v1, 36($sp) 
+sw $v1, 4($v0) 
+sw $v0, 92($sp) 
+lw $v0, 24($sp) 
+lw $v1, 92($sp) 
+lw $v0, 4($v1) 
+sw $v0, 24($sp) 
+lw $v0, 24($sp) 
+add $v0, $v0, 0 
+sw $v0, 28($sp) 
+lw $v0, 84($sp) 
+lw $v1, 28($sp) 
+lw $v0, 0($v1) 
+sw $v0, 84($sp) 
+lw $v0, 80($sp) 
+lw $v1, 84($sp) 
+lw $v0, 80($v1) 
+sw $v0, 80($sp) 
+lw $v0, 28($sp) 
+add $a0, $v0, 0 
+lw $v0, 92($sp) 
+add $a1, $v0, 0 
+lw $v0, 80($sp) 
+jalr $v0 
+add $v0, $v0, 0 
+sw $v0, 32($sp) 
+j L64 
+L63: 
+sll $0, $0, 0 
+L64: 
+sll $0, $0, 0 
+add $v0, $0, 0 
+sw $v0, 48($sp) 
+lw $v0, 48($sp) 
+add $v0, $v0, 0 
+lw $ra, 4($sp) 
+add $sp, $sp, 136 
+jr $ra 
+.alloc: 
+add $v0, $0, 9 
+syscall 
+jr $ra 
+.print: 
+add $v0, $0, 1 
+syscall 
+add $a0, $0, 10 
+add $v0, $0, 11 
+syscall 
+jr $ra 
